@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+body{
+  @apply bg-[#0B0B0B]
+}
+
+.heading{
+  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+}
+
+.para{
+ @apply text-[12px] md:text-[14px] lg:text-[18px]
+}
+
+.btn1{
+  @apply px-8 py-2 bg-[#0BA57F] text-black text-sm md:text-lg font-semibold rounded-full hover:bg-[#09c08f] transition
+}
+
+.btn2{
+  @apply px-8 py-2 border border-[#0BA57F] text-sm md:text-lg text-[#0BA57F] font-semibold rounded-full hover:bg-[#0BA57F] hover:text-black transition
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px #0ba57f44; }
+  50% { text-shadow: 0 0 25px #0ba57faa; }
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite;
+}
+
+
+
+
+
+

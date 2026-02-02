@@ -1,0 +1,363 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import CallIcon from "@mui/icons-material/Call";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
+const CheckboxDropdown = ({ label, options, selected, setSelected }) => {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleOption = (value) => {
+    if (selected.includes(value)) {
+      setSelected(selected.filter((item) => item !== value));
+    } else {
+      setSelected([...selected, value]);
+    }
+  };
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <label className="block mb-2 font-medium">{label}</label>
+
+      <div
+        onClick={() => setOpen(!open)}
+        className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3 cursor-pointer flex items-center justify-between"
+      >
+        {selected.length === 0 ? (
+          <span className="text-gray-400">Select options</span>
+        ) : (
+          <span>{selected.join(", ")}</span>
+        )}
+
+        {open ? (
+          <KeyboardArrowUpIcon className="text-gray-300" />
+        ) : (
+          <KeyboardArrowDownIcon className="text-gray-300" />
+        )}
+      </div>
+
+      {open && (
+        <div className="absolute w-full bg-[#111111] border border-[#0BA57F]/20 mt-2 rounded-lg max-h-48 overflow-y-auto z-20 p-3 shadow-lg">
+          {options.map((opt, i) => (
+            <label key={i} className="flex items-center gap-2 py-1 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={selected.includes(opt)}
+                onChange={() => toggleOption(opt)}
+              />
+              <span>{opt}</span>
+            </label>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+const ContactPage = () => {
+  const [divisionOptions] = useState([
+    "Venturemond Studio — Build a product or startup with us",
+    "Venturemond SaaS — Explore our software solutions",
+  ]);
+
+  const [division, setDivision] = useState([]);
+  const [serviceOptions, setServiceOptions] = useState([]);
+  const [selectedService, setSelectedService] = useState([]);
+  const [submited, setSubmited] = useState(true);
+  const [loading , setLoading] = useState(false)
+  const [error , setError]  = useState("")
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    description: "",
+    budget: "",
+    timeline: "",
+    division: "",
+    service: "",
+  });
+
+  const formRef = useRef();
+
+  // Update service list based on division
+  useEffect(() => {
+    let services = [];
+
+    if (division.includes("Venturemond Studio — Build a product or startup with us")) {
+      services.push(
+        "Research & Validation",
+        "MVP / Product Development (Web, App, SaaS)",
+        "Product Strategy & Roadmap",
+        "Growth & Go-To-Market"
+      );
+    }
+
+    if (division.includes("Venturemond SaaS — Explore our software solutions")) {
+      services.push("Venturemond Workspace");
+    }
+
+    setServiceOptions(services);
+    setSelectedService([]);
+  }, [division]);
+
+  // Update formData when division changes
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      division: division.join(", "),
+    }));
+  }, [division]);
+
+  // Update formData when services change
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      service: selectedService.join(", "),
+    }));
+  }, [selectedService]);
+
+  // Generic input handler
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    if(!formData.email && !formData.name && !formData.service ){
+      setError("Please fill the required details")
+      return ;
+    }
+    
+    setError("")
+    console.log("Submitted Form Data:", formData);
+    try{
+      setLoading(true)
+      const response = await fetch("/api/email" , {
+        method:"POST" , 
+        headers:{
+          "content-type":"application/json"
+        }, 
+        body:JSON.stringify(formData)
+      })
+      setLoading(false)
+      setSubmited(false)
+    }catch(error){
+      setError("Something went wrong! please try again")
+      console.log("Error in sending email..." , error)
+    }
+  };
+
+  return (
+    <section className="bg-[#0B0B0B] text-white py-24 px-6 md:px-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+      >
+        <h1 className="heading font-extrabold mb-4">
+          Let’s Build Something <span className="text-[#0BA57F]">Extraordinary.</span>
+        </h1>
+        <p className="text-gray-300 max-w-3xl mx-auto para leading-relaxed">
+          Whether you’re launching a new product or looking to scale your idea — Venturemond is ready to partner with you.
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        
+        {/* LEFT FORM */}
+        <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+          <h2 className="text-lg md:text-xl font-semibold mb-3">Tell us what you’d like to build.</h2>
+
+          {submited ? (
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-4 text-gray-300">
+
+              {/* NAME */}
+              <div>
+                <label className="block mb-2 font-medium">Name*</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={onChangeInput}
+                  required
+                  placeholder="Your full name"
+                  className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                />
+              </div>
+
+              {/* EMAIL */}
+              <div>
+                <label className="block mb-2 font-medium">Email*</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={onChangeInput}
+                  required
+                  placeholder="your@email.com"
+                  className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                />
+              </div>
+
+              {/* COMPANY */}
+              <div>
+                <label className="block mb-2 font-medium">Company / Startup Name</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={onChangeInput}
+                  placeholder="e.g. Alpha Tech Pvt. Ltd."
+                  className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                />
+              </div>
+
+              {/* DIVISION */}
+              <CheckboxDropdown
+                label="What are you interested in?*"
+                options={divisionOptions}
+                selected={division}
+                setSelected={setDivision}
+              />
+
+              {/* SERVICES */}
+              <CheckboxDropdown
+                label="Choose a Service*"
+                options={serviceOptions}
+                selected={selectedService}
+                setSelected={setSelectedService}
+              />
+
+              {/* DESCRIPTION */}
+              <div>
+                <label className="block mb-2 font-medium">Brief About Your Project*</label>
+                <textarea
+                  name="description"
+                  rows={4}
+                  required
+                  value={formData.description}
+                  onChange={onChangeInput}
+                  placeholder="Tell us about your idea..."
+                  className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                ></textarea>
+              </div>
+
+              {/* BUDGET + TIMELINE */}
+              <div className="grid md:grid-cols-2 gap-6">
+                
+                <div>
+                  <label className="block mb-2 font-medium">Budget Range*</label>
+                  <select
+                    name="budget"
+                    required
+                    value={formData.budget}
+                    onChange={onChangeInput}
+                    className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                  >
+                    <option value="" disabled>Select Budget Range</option>
+                    <option>Under ₹2 Lakhs / $2,500</option>
+                    <option>₹2–5 Lakhs / $2,500–$6,000</option>
+                    <option>₹5–10 Lakhs / $6,000–$12,000</option>
+                    <option>Above ₹10 Lakhs / $12,000+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block mb-2 font-medium">How Soon Do You Want to Start?*</label>
+                  <select
+                    name="timeline"
+                    required
+                    value={formData.timeline}
+                    onChange={onChangeInput}
+                    className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                  >
+                    <option value="" disabled>Select Time Frame</option>
+                    <option>Immediately</option>
+                    <option>Within 1 month</option>
+                    <option>In 2–3 months</option>
+                    <option>Exploring for now</option>
+                  </select>
+                </div>
+
+              </div>
+               {error && <p className="text-red-700">{error}</p>} 
+              <button type="submit" className="btn1" disabled={loading}>
+                {loading ? "Submiting...":"Submit Inquiry"}
+              </button>
+            </form>
+          ) : (
+            <p className="text-[#0BA57F] text-lg">
+              Form Submitted Successfully. We will reach out to you within 48 hours.
+            </p>
+          )}
+        </motion.div>
+
+        {/* RIGHT CONTACT INFO */}
+        <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+          <h2 className="heading font-semibold mb-4">Get in touch</h2>
+
+          <div className="space-y-4 para text-gray-300">
+            <p className="flex items-center gap-3">
+              <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
+            </p>
+
+            <p className="flex items-center gap-3">
+              <LocationOnIcon className="text-[#0BA57F]" />
+              4th Floor, Bizness Square, Hitec City, Hyderabad – 500084
+            </p>
+
+            <p className="flex items-center gap-3">
+              <LinkedInIcon className="text-[#0BA57F]" />
+              <Link href="https://www.linkedin.com/company/venturemond" target="_blank">
+                LinkedIn / Venturemond
+              </Link>
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* FOOTER */}
+      <div className="text-center mt-24 space-y-3">
+        <h3 className="text-xl font-bold text-[#0BA57F]">Want to talk directly?</h3>
+        <p className="text-gray-300 para">Reach out to our Team</p>
+
+        <div className="flex justify-center gap-4 para items-center text-gray-200 mt-3">
+          <CallIcon className="text-[#0BA57F]" /> +91 6302458752
+          <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
+        </div>
+
+        <Link
+          href="https://wa.me/916302458752"
+          target="_blank"
+          className="inline-flex text-lg items-center gap-2 mt-6 text-[#0BA57F]"
+        >
+          <WhatsAppIcon /> Chat on WhatsApp
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+export default ContactPage;
