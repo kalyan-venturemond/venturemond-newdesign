@@ -13,7 +13,7 @@ const Hero = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0B0B0B]/95" />
 
-    
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ const Hero = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="heading font-extrabold leading-tight"
         >
-          Innovating the Future,{" "} <br/>
+          Innovating the Future,{" "} <br />
           <span className="text-[#0BA57F]">One Byte at a Time.</span>
         </motion.h1>
         <motion.p
@@ -40,7 +40,7 @@ const Hero = () => {
           bold ideas into scalable realities.
         </motion.p>
 
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -54,10 +54,10 @@ const Hero = () => {
             Explore Studio
           </Link>
           <Link
-            href="/saas"
+            href="/services"
             className=" btn2"
           >
-            Explore SaaS
+            View Services
           </Link>
         </motion.div>
       </motion.div>

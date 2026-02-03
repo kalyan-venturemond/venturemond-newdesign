@@ -1,37 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import HubIcon from "@mui/icons-material/Hub";
 import SpeedIcon from "@mui/icons-material/Speed";
 import PsychologyIcon from "@mui/icons-material/Psychology";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 
 const advantages = [
   {
-    icon: <RocketLaunchIcon className="text-[#0BA57F]" />,
-    title: "Full-Stack Execution",
-    desc: "From strategy to development — everything in-house.",
+    icon: <HubIcon className="text-[#0BA57F]" />,
+    title: "Dual Execution Model",
+    desc: "We operate as both a venture studio and a SaaS builder — delivering for clients while shipping our own products using the same standards.",
   },
   {
     icon: <PsychologyIcon className="text-[#0BA57F]" />,
     title: "Founder-Led Thinking",
-    desc: "We think like co-builders, not vendors.",
+    desc: "Every decision is driven by outcome, ownership, and long-term value — not ticket-based delivery.",
   },
   {
-    icon: <HubIcon className="text-[#0BA57F]" />,
-    title: "Outcome Focused",
-    desc: "Each project ties to measurable results.",
+    icon: <ConstructionIcon className="text-[#0BA57F]" />,
+    title: "Production-First Engineering",
+    desc: "Whether client systems or internal SaaS, we build for real users, real load, and real scale from day one.",
   },
   {
-    icon: <EmojiObjectsIcon className="text-[#0BA57F]" />,
-    title: "Scalable Systems",
-    desc: "We build for long-term growth.",
+    icon: <VerifiedUserIcon className="text-[#0BA57F]" />,
+    title: "End-to-End Ownership",
+    desc: "From problem discovery to launch and scale, we own the full lifecycle — strategy, design, build, and execution.",
   },
   {
     icon: <SpeedIcon className="text-[#0BA57F]" />,
-    title: "Speed + Precision",
-    desc: "Rapid execution without compromise.",
+    title: "Speed With Discipline",
+    desc: "We move fast without shortcuts, using proven processes refined across studio projects and SaaS platforms.",
   },
 ];
 
@@ -39,7 +39,7 @@ const WhyChooseVenturemond = () => {
   return (
     <section className="bg-[#0B0B0B] text-white py-16 px-6 md:px-16">
       <div className="max-w-6xl mx-auto space-y-12">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,11 +47,11 @@ const WhyChooseVenturemond = () => {
           className="text-center"
         >
           <h2 className="heading font-bold flex justify-center items-center md:gap-2 gap-1">
-             <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
+            <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
           </h2>
         </motion.div>
 
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

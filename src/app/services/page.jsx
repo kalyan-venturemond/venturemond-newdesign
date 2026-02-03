@@ -1,6 +1,5 @@
 import ServicesHero from "./ServicesHero";
 import CoreServices from "./CoreServices";
-import WhatWeBuild from "./WhatWeBuild";
 import HowWeWork from "./HowWeWork";
 import TechStack from "./TechStack";
 import EngagementModel from "./EngagementModel";
@@ -11,7 +10,6 @@ const Services = () => {
         <div>
             <ServicesHero />
             <CoreServices />
-            <WhatWeBuild />
             <HowWeWork />
             <TechStack />
             <EngagementModel />

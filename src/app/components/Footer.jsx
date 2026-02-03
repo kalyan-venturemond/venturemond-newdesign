@@ -36,9 +36,6 @@ const Footer = () => {
           <Link href="/studio" className="hover:text-[#0BA57F] transition">
             Studio
           </Link>
-          <Link href="/saas" className="hover:text-[#0BA57F] transition">
-            SaaS
-          </Link>
           <Link href="/portfolio" className="hover:text-[#0BA57F] transition">
             Portfolio
           </Link>

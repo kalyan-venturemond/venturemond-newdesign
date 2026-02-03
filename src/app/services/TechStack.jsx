@@ -20,7 +20,7 @@ const techStack = [
         tools: [
             { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/FF6B6B" },
             { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/0BA57F" },
-            { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/white" },
+            { name: "OpenAI", logo: "/tech/openai.png" },
             { name: "Python", logo: "https://cdn.simpleicons.org/python/3776AB" }
         ]
     },
@@ -39,7 +39,7 @@ const techStack = [
         description: "Scalable, secure, and production-ready architecture.",
         tools: [
             { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs/8CC84B" },
-            { name: "AWS", logo: "https://cdn.simpleicons.org/amazon/white" },
+            { name: "AWS", logo: "/tech/aws.svg" },
             { name: "Docker", logo: "https://cdn.simpleicons.org/docker/2496ED" },
             { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel/white" }
         ]
