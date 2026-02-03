@@ -11,6 +11,7 @@ import CallIcon from "@mui/icons-material/Call";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
+
 const CheckboxDropdown = ({ label, options, selected, setSelected }) => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
@@ -83,8 +84,8 @@ const ContactPage = () => {
   const [serviceOptions, setServiceOptions] = useState([]);
   const [selectedService, setSelectedService] = useState([]);
   const [submited, setSubmited] = useState(true);
-  const [loading , setLoading] = useState(false)
-  const [error , setError]  = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const [formData, setFormData] = useState({
     name: "",
@@ -144,27 +145,27 @@ const ContactPage = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    if(!formData.email && !formData.name && !formData.service ){
+    if (!formData.email && !formData.name && !formData.service) {
       setError("Please fill the required details")
-      return ;
+      return;
     }
-    
+
     setError("")
     console.log("Submitted Form Data:", formData);
-    try{
+    try {
       setLoading(true)
-      const response = await fetch("/api/email" , {
-        method:"POST" , 
-        headers:{
-          "content-type":"application/json"
-        }, 
-        body:JSON.stringify(formData)
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(formData)
       })
       setLoading(false)
       setSubmited(false)
-    }catch(error){
+    } catch (error) {
       setError("Something went wrong! please try again")
-      console.log("Error in sending email..." , error)
+      console.log("Error in sending email...", error)
     }
   };
 
@@ -185,7 +186,7 @@ const ContactPage = () => {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-        
+
         {/* LEFT FORM */}
         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
           <h2 className="text-lg md:text-xl font-semibold mb-3">Tell us what you’d like to build.</h2>
@@ -266,7 +267,7 @@ const ContactPage = () => {
 
               {/* BUDGET + TIMELINE */}
               <div className="grid md:grid-cols-2 gap-6">
-                
+
                 <div>
                   <label className="block mb-2 font-medium">Budget Range*</label>
                   <select
@@ -302,9 +303,9 @@ const ContactPage = () => {
                 </div>
 
               </div>
-               {error && <p className="text-red-700">{error}</p>} 
+              {error && <p className="text-red-700">{error}</p>}
               <button type="submit" className="btn1" disabled={loading}>
-                {loading ? "Submiting...":"Submit Inquiry"}
+                {loading ? "Submiting..." : "Submit Inquiry"}
               </button>
             </form>
           ) : (

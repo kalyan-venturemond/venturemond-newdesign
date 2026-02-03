@@ -22,7 +22,18 @@ const FounderSection = () => {
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-[#0BA57F]/20 rounded-3xl p-8 md:p-10"
                 >
-                    <div className="flex flex-col md:flex-row gap-8 items-start">
+                    <div className="flex flex-col md:flex-row gap-10 items-center">
+                        <div className="w-full md:w-1/3 shrink-0">
+                            <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-[#0BA57F]/30 shadow-2xl">
+                                <Image
+                                    src="/founder.png"
+                                    alt="Kavyanth Munagala"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                        </div>
+
                         <div className="flex-1 space-y-4">
                             <h3 className="text-2xl md:text-3xl font-bold text-white">
                                 Kavyanth Munagala
