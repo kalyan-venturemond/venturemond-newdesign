@@ -16,7 +16,7 @@ const ServicesCTA = () => {
                 className="max-w-4xl mx-auto space-y-8"
             >
                 <h2 className="heading font-bold leading-snug">
-                    Let's Build Something That <span className="text-[#0BA57F]">Ships.</span>
+                    Let's Build Something That <span className="text-[#0BA57F]">Ships</span>
                 </h2>
 
                 <p className="text-gray-300 para leading-relaxed">
@@ -27,6 +27,9 @@ const ServicesCTA = () => {
                 <div className="flex flex-col sm:flex-row justify-center gap-5 mt-10">
                     <Link href="/contact" className="btn1">
                         Book a Discovery Call
+                    </Link>
+                    <Link href="/contact" className="btn2">
+                        Contact us
                     </Link>
                 </div>
             </motion.div>

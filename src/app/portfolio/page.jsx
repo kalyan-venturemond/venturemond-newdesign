@@ -1,16 +1,18 @@
 import PortfolioHero from "./PortfolioHero";
-import PortfolioOverview from "./PortfolioOverview";
+import OperatingModels from "./OperatingModels";
 import WorkGrid from "./WorkGrid";
-import Philosophy from "./Philosophy";
+import StudioPortfolio from "./StudioPortfolio";
+import FlagshipProduct from "./FlagshipProduct";
 import PortfolioCTA from "./PortfolioCTA";
 
 const Portfolio = () => {
     return (
         <div>
             <PortfolioHero />
-            <PortfolioOverview />
+            <OperatingModels />
             <WorkGrid />
-            <Philosophy />
+            <StudioPortfolio />
+            <FlagshipProduct />
             <PortfolioCTA />
         </div>
     );

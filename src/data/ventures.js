@@ -42,7 +42,7 @@ export const ventures = [
     {
         slug: "leadnest-ai",
         title: "LeadNest AI",
-        division: "SaaS",
+        division: "STUDIO",
         description: "Predictive sales pipeline engine that prioritizes leads using interaction signal intelligence.",
         logo: "/logos/leadnest-ai.png",
         overview: [
@@ -62,7 +62,7 @@ export const ventures = [
     {
         slug: "finvertex-systems",
         title: "FinVertex Systems",
-        division: "SaaS",
+        division: "STUDIO",
         description: "High-frequency wealth visualization suite for risk assessment and portfolio analytics.",
         logo: "/logos/finvertex-systems.png",
         overview: [
@@ -82,7 +82,7 @@ export const ventures = [
     {
         slug: "taskforge-studio",
         title: "TaskForge Studio",
-        division: "SaaS",
+        division: "STUDIO",
         description: "Asynchronous collaboration ecosystem designed for remote engineering team sprints.",
         logo: "/logos/taskforge-studio.png",
         overview: [

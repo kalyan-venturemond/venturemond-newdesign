@@ -54,7 +54,7 @@ const WhatWeBring = () => {
                     className="text-center space-y-4"
                 >
                     <h2 className="heading font-bold">
-                        What We <span className="text-[#0BA57F]">Bring.</span>
+                        What We <span className="text-[#0BA57F]">Bring</span>
                     </h2>
                     <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                         We act as your technical co-founder, product team, and growth engine.
@@ -91,7 +91,7 @@ const WhatWeBring = () => {
                     className="text-center pt-8 border-t border-white/10"
                 >
                     <p className="text-gray-500 italic">
-                        All the capabilities of a venture studio, deployed for your success.
+                        All the capabilities of a venture studio, deployed for your success
                     </p>
                 </motion.div>
             </div>

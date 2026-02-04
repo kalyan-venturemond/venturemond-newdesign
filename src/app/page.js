@@ -6,6 +6,7 @@ import HowWeWork from "./home/HowWeWork";
 import WhyVenturemondHome from "./home/WhyVenturemondHome";
 import WhyChooseVenturemond from "./home/WhyChooseVenturemond";
 import FinalCTA from "./home/FinalCTA";
+import TechStackStrip from "./home/TechStackStrip";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <TwoWaysWeWork />
       <WhatWeBuildHome />
       <HowWeWork />
+      <TechStackStrip />
       <WhyVenturemondHome />
       <WhyChooseVenturemond />
       <FinalCTA />

@@ -108,10 +108,10 @@ export default function Page({ params }) {
             <div className="max-w-5xl mx-auto px-6 md:px-12">
                 {/* Back Link */}
                 <Link
-                    href="/blogs#ventures"
+                    href="/portfolio"
                     className="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors mb-16 tracking-wide"
                 >
-                    ← Back to Projects
+                    ← Back to Portfolio
                 </Link>
 
                 {/* Header - Centered */}

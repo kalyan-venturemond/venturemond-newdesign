@@ -38,23 +38,23 @@ const FeaturedProduct = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0BA57F]/10 via-transparent to-transparent -z-10" />
 
       <div className="max-w-6xl mx-auto text-center space-y-12">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="heading font-bold mb-4">
-            Private. Smart. <span className="text-[#0BA57F]">Seamless.</span>
+            Private. Smart. <span className="text-[#0BA57F]">Seamless</span>
           </h2>
           <p className="text-gray-300 para max-w-3xl mx-auto leading-relaxed">
             Venturemond Workspace is a private, intelligent workspace for teams that value
-            privacy, performance, and productivity.  
+            privacy, performance, and productivity.
             It combines collaboration, automation, and secure cloud infrastructure into a single modern platform.
           </p>
         </motion.div>
 
-       
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -77,7 +77,7 @@ const FeaturedProduct = () => {
           ))}
         </motion.div>
 
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

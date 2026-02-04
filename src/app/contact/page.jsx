@@ -76,8 +76,8 @@ const CheckboxDropdown = ({ label, options, selected, setSelected }) => {
 
 const ContactPage = () => {
   const [divisionOptions] = useState([
-    "Venturemond Studio — Build a product or startup with us",
-    "Venturemond SaaS — Explore our software solutions",
+    "Venturemond Services — Build production systems",
+    "Venturemond Studio — Co-build a venture with us",
   ]);
 
   const [division, setDivision] = useState([]);
@@ -96,6 +96,7 @@ const ContactPage = () => {
     timeline: "",
     division: "",
     service: "",
+    otherDescription: "",
   });
 
   const formRef = useRef();
@@ -104,17 +105,22 @@ const ContactPage = () => {
   useEffect(() => {
     let services = [];
 
-    if (division.includes("Venturemond Studio — Build a product or startup with us")) {
+    if (division.includes("Venturemond Studio — Co-build a venture with us")) {
       services.push(
         "Research & Validation",
-        "MVP / Product Development (Web, App, SaaS)",
+        "MVP / Product Development",
         "Product Strategy & Roadmap",
         "Growth & Go-To-Market"
       );
     }
 
-    if (division.includes("Venturemond SaaS — Explore our software solutions")) {
-      services.push("Venturemond Workspace");
+    if (division.includes("Venturemond Services — Build production systems")) {
+      services.push(
+        "AI Automation",
+        "AI Agents",
+        "Custom ERPs & CRMs",
+        "Other"
+      );
     }
 
     setServiceOptions(services);
@@ -178,7 +184,7 @@ const ContactPage = () => {
         className="text-center mb-16"
       >
         <h1 className="heading font-extrabold mb-4">
-          Let’s Build Something <span className="text-[#0BA57F]">Extraordinary.</span>
+          Let’s Build Something <span className="text-[#0BA57F]">Extraordinary</span>
         </h1>
         <p className="text-gray-300 max-w-3xl mx-auto para leading-relaxed">
           Whether you’re launching a new product or looking to scale your idea — Venturemond is ready to partner with you.
@@ -251,6 +257,20 @@ const ContactPage = () => {
                 setSelected={setSelectedService}
               />
 
+              {selectedService.includes("Other") && (
+                <div>
+                  <label className="block mb-2 font-medium">Please specify the service</label>
+                  <input
+                    type="text"
+                    name="otherDescription"
+                    value={formData.otherDescription}
+                    onChange={onChangeInput}
+                    placeholder="Describe the service you are looking for..."
+                    className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
+                  />
+                </div>
+              )}
+
               {/* DESCRIPTION */}
               <div>
                 <label className="block mb-2 font-medium">Brief About Your Project*</label>
@@ -269,10 +289,9 @@ const ContactPage = () => {
               <div className="grid md:grid-cols-2 gap-6">
 
                 <div>
-                  <label className="block mb-2 font-medium">Budget Range*</label>
+                  <label className="block mb-2 font-medium">Budget Range</label>
                   <select
                     name="budget"
-                    required
                     value={formData.budget}
                     onChange={onChangeInput}
                     className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
@@ -286,10 +305,9 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block mb-2 font-medium">How Soon Do You Want to Start?*</label>
+                  <label className="block mb-2 font-medium">How Soon Do You Want to Start?</label>
                   <select
                     name="timeline"
-                    required
                     value={formData.timeline}
                     onChange={onChangeInput}
                     className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
@@ -319,43 +337,40 @@ const ContactPage = () => {
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
           <h2 className="heading font-semibold mb-4">Get in touch</h2>
 
-          <div className="space-y-4 para text-gray-300">
-            <p className="flex items-center gap-3">
-              <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
-            </p>
+          <div className="space-y-6 para text-gray-300">
+            <div className="space-y-3">
+              <p className="flex items-center gap-3">
+                <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
+              </p>
+
+              <p className="flex items-center gap-3">
+                <CallIcon className="text-[#0BA57F]" /> +91 6302458752
+              </p>
+            </div>
 
             <p className="flex items-center gap-3">
               <LocationOnIcon className="text-[#0BA57F]" />
               4th Floor, Bizness Square, Hitec City, Hyderabad – 500084
             </p>
 
-            <p className="flex items-center gap-3">
-              <LinkedInIcon className="text-[#0BA57F]" />
-              <Link href="https://www.linkedin.com/company/venturemond" target="_blank">
-                LinkedIn / Venturemond
+            <div className="space-y-4 pt-2">
+              <p className="flex items-center gap-3">
+                <LinkedInIcon className="text-[#0BA57F]" />
+                <Link href="https://www.linkedin.com/company/venturemond" target="_blank" className="hover:text-white transition-colors">
+                  LinkedIn / Venturemond
+                </Link>
+              </p>
+
+              <Link
+                href="https://wa.me/916302458752"
+                target="_blank"
+                className="inline-flex items-center gap-3 text-[#0BA57F] hover:text-[#09c08f] transition-colors border border-[#0BA57F]/30 px-4 py-2 rounded-lg bg-[#0BA57F]/5 hover:bg-[#0BA57F]/10"
+              >
+                <WhatsAppIcon /> Chat on WhatsApp
               </Link>
-            </p>
+            </div>
           </div>
         </motion.div>
-      </div>
-
-      {/* FOOTER */}
-      <div className="text-center mt-24 space-y-3">
-        <h3 className="text-xl font-bold text-[#0BA57F]">Want to talk directly?</h3>
-        <p className="text-gray-300 para">Reach out to our Team</p>
-
-        <div className="flex justify-center gap-4 para items-center text-gray-200 mt-3">
-          <CallIcon className="text-[#0BA57F]" /> +91 6302458752
-          <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
-        </div>
-
-        <Link
-          href="https://wa.me/916302458752"
-          target="_blank"
-          className="inline-flex text-lg items-center gap-2 mt-6 text-[#0BA57F]"
-        >
-          <WhatsAppIcon /> Chat on WhatsApp
-        </Link>
       </div>
     </section>
   );

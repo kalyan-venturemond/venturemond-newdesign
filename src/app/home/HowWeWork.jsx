@@ -11,32 +11,32 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 const steps = [
   {
     id: 1,
-    title: "Discover",
-    desc: "Understand your goals and challenges.",
+    title: "Understand",
+    desc: "Clarify the problem, goals, users, and constraints.",
     icon: <SearchIcon className="text-[#0BA57F] text-3xl" />
   },
   {
     id: 2,
-    title: "Validate",
-    desc: "Confirm opportunity and market fit.",
+    title: "Plan",
+    desc: "Define scope, architecture, timeline, and execution approach.",
     icon: <VerifiedUserIcon className="text-[#0BA57F] text-3xl" />
   },
   {
     id: 3,
     title: "Build",
-    desc: "Design and develop the product.",
+    desc: "Design and develop using production-grade engineering standards.",
     icon: <ConstructionIcon className="text-[#0BA57F] text-3xl" />
   },
   {
     id: 4,
-    title: "Launch",
-    desc: "Execute your go-to-market plan.",
+    title: "Ship",
+    desc: "Deploy, test, and release to real users or production environments.",
     icon: <RocketLaunchIcon className="text-[#0BA57F] text-3xl" />
   },
   {
     id: 5,
-    title: "Scale",
-    desc: "Optimize, iterate, and grow.",
+    title: "Improve",
+    desc: "Iterate and optimize based on usage, feedback, and outcomes..",
     icon: <TrendingUpIcon className="text-[#0BA57F] text-3xl" />
   }
 ];
@@ -54,7 +54,7 @@ const HowWeWork = () => {
           className="text-center space-y-4"
         >
           <h2 className="heading font-bold">
-            How We <span className="text-[#0BA57F]">Operate.</span>
+            How We <span className="text-[#0BA57F]">Operate</span>
           </h2>
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
             One execution model. Applied to both client systems and our own products.
@@ -106,7 +106,7 @@ const HowWeWork = () => {
           className="text-center space-y-8 pt-8"
         >
           <p className="text-gray-500 text-sm md:text-base italic">
-            This process powers both our studio engagements and SaaS products.
+            A simple execution process used across both Services and Studio engagements.
           </p>
 
           <Link

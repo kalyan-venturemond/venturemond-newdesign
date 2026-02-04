@@ -24,7 +24,7 @@ const WhatWeLookFor = () => {
                     className="space-y-6 sticky top-24"
                 >
                     <h2 className="heading font-bold leading-tight">
-                        What We <span className="text-[#0BA57F]">Look For.</span>
+                        What We <span className="text-[#0BA57F]">Look For</span>
                     </h2>
                     <p className="text-gray-400 text-lg leading-relaxed max-w-md">
                         We don't invest in just ideas. We invest in founders who have the grit, insight, and ability to execute.

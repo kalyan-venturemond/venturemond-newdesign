@@ -1,6 +1,5 @@
 import AboutStudio from "./AboutStudio"
 import FinalStudioCTA from "./FinalStudioCTA"
-import FourPillars from "./FourPillars"
 import Hero from "./StudioHero"
 import HowStudioWorks from "./HowStudioWorks"
 import WhatWeLookFor from "./WhatWeLookFor"
@@ -17,7 +16,6 @@ const Studio = () => {
       <HowStudioWorks />
       <WhatWeLookFor />
       <WhatWeBring />
-      <FourPillars />
       <StudioProcess />
       <WhyChoose />
       <FinalStudioCTA />

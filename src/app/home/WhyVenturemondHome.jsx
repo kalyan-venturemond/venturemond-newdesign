@@ -18,7 +18,7 @@ const credibilityPoints = [
     },
     {
         icon: <SpeedIcon className="text-[#0BA57F] text-4xl" />,
-        stat: "60 Days",
+        stat: "45 Days",
         label: "Average MVP Timeline"
     }
 ];
@@ -65,7 +65,7 @@ const WhyVenturemondHome = () => {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="text-center text-gray-400 italic para mt-8"
                 >
-                    Real systems. Real outcomes. Real execution.
+                    Real systems. Real outcomes. Real execution
                 </motion.p>
             </div>
         </section>

@@ -22,7 +22,7 @@ const CaseStories = () => {
       >
         <div className="text-center space-y-4">
           <h2 className="heading font-extrabold">
-            Ventures <span className="text-[#0BA57F]">We’ve Built.</span>
+            Ventures <span className="text-[#0BA57F]">We’ve Built</span>
           </h2>
           <p className="text-gray-300 para max-w-2xl mx-auto">
             A glimpse into some of the projects and ideas we’ve executed through{" "}

@@ -27,7 +27,7 @@ const Hero = () => {
           className="heading font-extrabold leading-tight"
         >
           Innovating the Future,{" "} <br />
-          <span className="text-[#0BA57F]">One Byte at a Time.</span>
+          <span className="text-[#0BA57F]">One Byte at a Time</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -36,7 +36,7 @@ const Hero = () => {
           className="text-gray-300 text-sm md:text-lg lg:text-xl leading-relaxed mx-auto"
         >
           Venturemond builds and scales the next generation of ventures and software
-          products — combining product strategy, design, and engineering to turn
+          products  combining product strategy, design, and engineering to turn
           bold ideas into scalable realities.
         </motion.p>
 
@@ -48,16 +48,16 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
         >
           <Link
-            href="/studio"
+            href="/services"
             className=" btn1"
           >
-            Explore Studio
+            Explore Services
           </Link>
           <Link
-            href="/services"
+            href="/studio"
             className=" btn2"
           >
-            View Services
+            View Studio
           </Link>
         </motion.div>
       </motion.div>

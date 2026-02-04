@@ -57,7 +57,7 @@ const TechStack = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="heading font-extrabold mb-4">
-                        Our <span className="text-[#0BA57F]">Tech Stack.</span>
+                        Our <span className="text-[#0BA57F]">Tech Stack</span>
                     </h2>
                     <p className="text-gray-300 para max-w-2xl mx-auto">
                         We choose the right tools for the job — prioritizing speed, scalability, and maintainability.

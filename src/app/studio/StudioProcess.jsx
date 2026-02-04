@@ -46,7 +46,7 @@ const StudioProcess = () => {
         className="heading font-bold mb-12"
       >
         A process built for{" "}
-        <span className="text-[#0BA57F]">clarity and speed.</span>
+        <span className="text-[#0BA57F]">clarity and speed</span>
       </motion.h2>
 
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
@@ -73,7 +73,7 @@ const StudioProcess = () => {
         ))}
       </div>
 
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

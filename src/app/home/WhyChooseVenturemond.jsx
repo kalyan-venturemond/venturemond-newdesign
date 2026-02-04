@@ -11,7 +11,7 @@ const advantages = [
   {
     icon: <HubIcon className="text-[#0BA57F]" />,
     title: "Dual Execution Model",
-    desc: "We operate as both a venture studio and a SaaS builder — delivering for clients while shipping our own products using the same standards.",
+    desc: "We operate as both a venture studio and a product builder — delivering for clients while shipping our own products using the same standards.",
   },
   {
     icon: <PsychologyIcon className="text-[#0BA57F]" />,
@@ -21,7 +21,7 @@ const advantages = [
   {
     icon: <ConstructionIcon className="text-[#0BA57F]" />,
     title: "Production-First Engineering",
-    desc: "Whether client systems or internal SaaS, we build for real users, real load, and real scale from day one.",
+    desc: "Whether client systems or internal products, we build for real users, real load, and real scale from day one.",
   },
   {
     icon: <VerifiedUserIcon className="text-[#0BA57F]" />,
@@ -31,7 +31,7 @@ const advantages = [
   {
     icon: <SpeedIcon className="text-[#0BA57F]" />,
     title: "Speed With Discipline",
-    desc: "We move fast without shortcuts, using proven processes refined across studio projects and SaaS platforms.",
+    desc: "We move fast without shortcuts, using proven processes refined across studio projects and product platforms.",
   },
 ];
 
@@ -47,7 +47,7 @@ const WhyChooseVenturemond = () => {
           className="text-center"
         >
           <h2 className="heading font-bold flex justify-center items-center md:gap-2 gap-1">
-            <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
+            <span>⚡ How We Build & Execute at <span className="text-[#0BA57F]">Venturemond?</span></span>
           </h2>
         </motion.div>
 

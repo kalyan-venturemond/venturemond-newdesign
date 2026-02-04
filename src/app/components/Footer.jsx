@@ -21,9 +21,8 @@ const Footer = () => {
             </span>
           </Link>
           <p className="text-sm text-gray-400">
-            Venture Mond is a Next-Gen Venture Studio & SaaS Company.
-            Innovating the Future, One Byte at a Time.
-            Where ideas become products — and products become ventures that scale.
+            Venture Mond is a next-generation services and venture studio company.
+            We design, build, and scale production-grade software for clients, while co-building ventures where ideas become products and products become scalable businesses.
           </p>
         </div>
 
@@ -39,15 +38,11 @@ const Footer = () => {
           <Link href="/portfolio" className="hover:text-[#0BA57F] transition">
             Portfolio
           </Link>
-          <Link href="/blogs" className="hover:text-[#0BA57F] transition">
-            Blogs
-          </Link>
+
           <Link href="/about" className="hover:text-[#0BA57F] transition">
             About
           </Link>
-          <Link href="/careers" className="hover:text-[#0BA57F] transition">
-            Careers
-          </Link>
+
           <Link href="/contact" className="hover:text-[#0BA57F] transition">
             Contact
           </Link>

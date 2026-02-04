@@ -16,15 +16,17 @@ const CareersCTA = () => {
           Ready to <span className="text-[#0BA57F]">Build the Future</span> with Us?
         </h2>
         <p className="text-gray-300 para">
-          Join Venturemond’s growing team of builders, innovators, and strategists. 
+          Join Venturemond’s growing team of builders, innovators, and strategists.
           Let’s create what’s next — together.
         </p>
-        <a
-          href="mailto:career@venturemond.com"
-          className="inline-block px-8 py-3 bg-[#0BA57F] text-black font-semibold rounded-full hover:bg-[#09c08f] transition duration-300"
-        >
-          Apply Now → career@venturemond.com
-        </a>
+        <div className="flex flex-col sm:flex-row justify-center gap-5 mt-8">
+          <Link href="/contact" className="btn1">
+            Book a Discovery Call
+          </Link>
+          <Link href="/contact" className="btn2">
+            Contact us
+          </Link>
+        </div>
       </motion.div>
     </section>
   );

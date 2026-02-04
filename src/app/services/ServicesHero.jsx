@@ -8,7 +8,7 @@ const ServicesHero = () => {
         <section
             className="relative flex flex-col items-center justify-center min-h-[90dvh] text-white overflow-hidden px-6 md:px-16 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: "url('/home/bg2.gif')"
+                backgroundImage: "url('/home/bg7.gif')"
             }}
         >
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0B0B0B]/95" />
@@ -25,8 +25,8 @@ const ServicesHero = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="heading font-extrabold leading-tight"
                 >
-                    AI-First Software.{" "}
-                    <span className="text-[#0BA57F]">Built to Ship.</span>
+                    AI-First Software{" "}
+                    <span className="text-[#0BA57F]">Built to Ship</span>
                 </motion.h1>
 
                 <motion.p
@@ -52,7 +52,7 @@ const ServicesHero = () => {
                         Book a Discovery Call
                     </Link>
                     <Link
-                        href="#how-we-work"
+                        href="/contact"
                         className="btn2"
                     >
                         Explore How We Work

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import CodeIcon from "@mui/icons-material/Code";
 
 const services = [
     {
@@ -21,11 +20,6 @@ const services = [
         icon: <BusinessCenterIcon className="text-[#0BA57F] text-5xl animate-float" />,
         title: "ERP & CRM Development",
         description: "Custom enterprise resource planning and customer relationship management systems built for your business."
-    },
-    {
-        icon: <CodeIcon className="text-[#0BA57F] text-5xl animate-float" />,
-        title: "Custom Software & Platforms",
-        description: "Tailored web applications, internal tools, and production-grade platforms designed to scale."
     }
 ];
 
@@ -48,7 +42,7 @@ const CoreServices = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}

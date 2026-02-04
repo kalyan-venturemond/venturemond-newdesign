@@ -16,7 +16,7 @@ const AboutCTA = () => {
                 className="max-w-4xl mx-auto space-y-8"
             >
                 <h2 className="heading font-bold leading-tight">
-                    Let's Build <span className="text-[#0BA57F]">Together.</span>
+                    Let's Build <span className="text-[#0BA57F]">Together</span>
                 </h2>
 
                 <p className="text-gray-300 para max-w-2xl mx-auto leading-relaxed">
@@ -26,7 +26,10 @@ const AboutCTA = () => {
 
                 <div className="flex flex-col sm:flex-row justify-center gap-5 mt-10">
                     <Link href="/contact" className="btn1">
-                        Start a Conversation
+                        Book a Discovery Call
+                    </Link>
+                    <Link href="/contact" className="btn2">
+                        Contact us
                     </Link>
                 </div>
             </motion.div>

@@ -6,7 +6,7 @@ import Link from "next/link";
 const FinalCTA = () => {
   return (
     <section className="relative text-center bg-[#0B0B0B] text-white lg:py-16 md:py-10 py-5 px-6 md:px-16 overflow-hidden">
-      
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,16 +20,16 @@ const FinalCTA = () => {
         <p className="text-gray-300 para leading-relaxed">
           Partner with{" "}
           <span className="text-[#0BA57F] font-semibold">Venturemond</span> to
-          design, build, and scale your next product — fast, strategic, and
+          design, build, and scale your next product fast, strategic, and
           future-ready.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-5 mt-10">
           <Link href="/contact" className="btn1">
-            Partner With Us
+            Book a Discovery Call
           </Link>
           <Link href="/contact" className="btn2">
-            Contact Us
+            Contact us
           </Link>
         </div>
       </motion.div>
