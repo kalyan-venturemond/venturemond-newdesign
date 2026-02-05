@@ -101,24 +101,51 @@ const ContactPage = () => {
 
   const formRef = useRef();
 
-  // Currency Detection State
-  const [currency, setCurrency] = useState("USD");
+  // Global Currency Support
+  const [geoConfig, setGeoConfig] = useState({ currency: "INR", rate: 84 }); // Default INR
 
   useEffect(() => {
-    try {
-      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      console.log("Detected Timezone:", timeZone); // For debugging
-      if (
-        timeZone === "Asia/Kolkata" ||
-        timeZone === "Asia/Calcutta" ||
-        timeZone.includes("India")
-      ) {
-        setCurrency("INR");
+    const fetchGeo = async () => {
+      try {
+        const res = await fetch("/api/geo");
+        if (res.ok) {
+          const data = await res.json();
+          // Use fetched data, fallback to INR default if something is empty
+          setGeoConfig({
+            currency: data.currency || "INR",
+            rate: data.rate || 84
+          });
+        }
+      } catch (e) {
+        console.error("Geo fetch failed", e);
       }
-    } catch (e) {
-      console.log("Timezone detection failed", e);
-    }
+    };
+    fetchGeo();
   }, []);
+
+  // Helper to format currency cleanly
+  const formatMoney = (usdAmount) => {
+    // 1. Convert
+    let val = usdAmount * geoConfig.rate;
+
+    // 2. Rounding for clean numbers (e.g. 207500 -> 200,000)
+    // Dynamic precision based on magnitude
+    if (val > 100000) val = Math.round(val / 10000) * 10000;
+    else if (val > 1000) val = Math.round(val / 1000) * 1000;
+
+    // 3. Format
+    try {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: geoConfig.currency,
+        maximumFractionDigits: 0,
+      }).format(val);
+    } catch (e) {
+      return val; // Fallback
+    }
+  };
+
+  const baseTiers = [2500, 6000, 12000]; // Base USD tiers
 
   // Update service list based on division
   useEffect(() => {
@@ -316,21 +343,11 @@ const ContactPage = () => {
                     className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
                   >
                     <option value="" disabled>Select Budget Range</option>
-                    {currency === "INR" ? (
-                      <>
-                        <option>Under ₹2 Lakhs</option>
-                        <option>₹2–5 Lakhs</option>
-                        <option>₹5–10 Lakhs</option>
-                        <option>Above ₹10 Lakhs</option>
-                      </>
-                    ) : (
-                      <>
-                        <option>Under $2,500</option>
-                        <option>$2,500–$6,000</option>
-                        <option>$6,000–$12,000</option>
-                        <option>$12,000+</option>
-                      </>
-                    )}
+                    <option value="" disabled>Select Budget Range ({geoConfig.currency})</option>
+                    <option>Under {formatMoney(baseTiers[0])}</option>
+                    <option>{formatMoney(baseTiers[0])} – {formatMoney(baseTiers[1])}</option>
+                    <option>{formatMoney(baseTiers[1])} – {formatMoney(baseTiers[2])}</option>
+                    <option>Above {formatMoney(baseTiers[2])}</option>
                   </select>
                 </div>
 
