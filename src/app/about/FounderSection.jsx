@@ -55,22 +55,23 @@ const FounderSection = () => {
                                 </p>
 
                                 {/* Contact Links */}
-                                <div className="flex flex-col gap-2 mt-2">
+                                {/* Contact Links */}
+                                <div className="flex items-center gap-4 mt-3">
                                     <Link
                                         href="https://www.linkedin.com/in/kavyanthm/"
                                         target="_blank"
-                                        className="inline-flex items-center gap-2 text-gray-400 hover:text-[#0BA57F] transition-all duration-300 group w-fit"
+                                        className="text-gray-400 hover:text-[#0BA57F] transition-all duration-300 transform hover:scale-110"
+                                        title="Connect on LinkedIn"
                                     >
-                                        <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
-                                        <span className="text-sm font-medium group-hover:underline">Connect on LinkedIn</span>
+                                        <Linkedin size={24} />
                                     </Link>
 
                                     <a
                                         href="mailto:kavyanth@venturemond.com"
-                                        className="inline-flex items-center gap-2 text-gray-400 hover:text-[#0BA57F] transition-all duration-300 group w-fit"
+                                        className="text-gray-400 hover:text-[#0BA57F] transition-all duration-300 transform hover:scale-110"
+                                        title="Send Email"
                                     >
-                                        <Mail size={20} className="group-hover:scale-110 transition-transform" />
-                                        <span className="text-sm font-medium group-hover:underline">kavyanth@venturemond.com</span>
+                                        <Mail size={24} />
                                     </a>
                                 </div>
                             </div>

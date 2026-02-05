@@ -339,19 +339,24 @@ const ContactPage = () => {
 
           <div className="space-y-6 para text-gray-300">
             <div className="space-y-3">
-              <p className="flex items-center gap-3">
+              <a href="mailto:hello@venturemond.com" className="flex items-center gap-3 hover:text-[#0BA57F] transition-colors">
                 <EmailIcon className="text-[#0BA57F]" /> hello@venturemond.com
-              </p>
+              </a>
 
-              <p className="flex items-center gap-3">
+              <a href="tel:+916302458752" className="flex items-center gap-3 hover:text-[#0BA57F] transition-colors">
                 <CallIcon className="text-[#0BA57F]" /> +91 6302458752
-              </p>
+              </a>
             </div>
 
-            <p className="flex items-center gap-3">
-              <LocationOnIcon className="text-[#0BA57F]" />
-              4th Floor, Bizness Square, Hitec City, Hyderabad – 500084
-            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Bizness+Square,+Hitec+City,+Hyderabad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 hover:text-[#0BA57F] transition-colors"
+            >
+              <LocationOnIcon className="text-[#0BA57F] shrink-0 mt-1" />
+              <span>4th Floor, Bizness Square, Hitec City, Hyderabad – 500084</span>
+            </a>
 
             <div className="space-y-4 pt-2">
               <p className="flex items-center gap-3">
@@ -361,13 +366,7 @@ const ContactPage = () => {
                 </Link>
               </p>
 
-              <Link
-                href="https://wa.me/916302458752"
-                target="_blank"
-                className="inline-flex items-center gap-3 text-[#0BA57F] hover:text-[#09c08f] transition-colors border border-[#0BA57F]/30 px-4 py-2 rounded-lg bg-[#0BA57F]/5 hover:bg-[#0BA57F]/10"
-              >
-                <WhatsAppIcon /> Chat on WhatsApp
-              </Link>
+
             </div>
           </div>
         </motion.div>

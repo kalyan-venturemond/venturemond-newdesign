@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Footer = () => {
@@ -82,7 +82,20 @@ const Footer = () => {
               className="text-[#0BA57F] opacity-60 cursor-default relative group"
             >
               <Instagram size={24} />
+            </div>
 
+            {/* Facebook - Disabled */}
+            <div
+              className="text-[#0BA57F] opacity-60 cursor-default relative group"
+            >
+              <Facebook size={24} />
+            </div>
+
+            {/* Twitter - Disabled */}
+            <div
+              className="text-[#0BA57F] opacity-60 cursor-default relative group"
+            >
+              <Twitter size={24} />
             </div>
           </div>
         </div>
