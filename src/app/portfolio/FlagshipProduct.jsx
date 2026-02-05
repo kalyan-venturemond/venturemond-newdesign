@@ -10,9 +10,26 @@ const FlagshipProduct = () => {
         <section className="bg-[#0B0B0B] text-white py-24 px-6 md:px-16 border-t border-white/5">
             <div className="max-w-5xl mx-auto space-y-12">
 
-                <h2 className="heading font-bold text-center mb-16">
-                    Flagship <span className="text-[#0BA57F]">Product</span>
-                </h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center space-y-12 mb-16"
+                >
+                    <h2 className="heading font-bold">
+                        Flagship <span className="text-[#0BA57F]">Product</span>
+                    </h2>
+
+                    {/* Supporting Text */}
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        <p className="text-base md:text-lg text-gray-500 font-medium tracking-wide">
+                            A real product, not a showcase
+                        </p>
+                        <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+                            Stackly OS is built and used internally at Venturemond shaping how we design scalable, control-first systems.
+                        </p>
+                    </div>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -27,13 +44,14 @@ const FlagshipProduct = () => {
                     <div className="relative z-10 flex flex-col items-center text-center space-y-8">
 
                         {/* Logo */}
-                        {/* Logo */}
                         <div className="w-20 h-20 md:w-24 md:h-24 relative shadow-lg rounded-2xl overflow-hidden">
                             <Image
-                                src="/logos/stackly.png"
+                                src="/logos/stackly1.png"
                                 alt="Stackly OS Logo"
                                 fill
                                 className="object-cover"
+                                unoptimized
+                                priority
                             />
                         </div>
 
@@ -67,9 +85,6 @@ const FlagshipProduct = () => {
                             </Link>
                         </div>
 
-                        <p className="text-gray-500 text-xs mt-4">
-                            Built and used internally at Venturemond.
-                        </p>
                     </div>
                 </motion.div>
 

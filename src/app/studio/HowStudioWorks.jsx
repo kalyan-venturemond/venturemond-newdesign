@@ -9,8 +9,8 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 const steps = [
     {
         id: 1,
-        title: "Paid MVP Build",
-        desc: "We start with a paid engagement to validate your idea and build the initial product.",
+        title: "MVP Build",
+        desc: "We start with a engagement to validate your idea and build the initial product.",
         icon: <SearchIcon className="text-[#0BA57F] text-4xl animate-float drop-shadow-[0_0_6px_#0BA57F66]" />
     },
     {
@@ -48,7 +48,7 @@ const HowStudioWorks = () => {
                         How the Studio <span className="text-[#0BA57F]">Works</span>
                     </h2>
                     <p className="text-gray-300 para max-w-2xl mx-auto">
-                        A structured path from idea to partnership — built on validation and execution.
+                        A structured path from idea to partnership built on validation and execution.
                     </p>
                 </motion.div>
 

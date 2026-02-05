@@ -79,7 +79,7 @@ const StudioHero = () => {
           href="/contact?model=studio&type=partner"
           className="btn1"
         >
-          Partner With Studio
+          Schedule a call
         </Link>
         <Link
           href="/contact?model=studio"

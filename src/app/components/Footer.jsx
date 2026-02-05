@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Footer = () => {
   return (
@@ -29,6 +30,9 @@ const Footer = () => {
         {/* Middle Section - Quick Links */}
         <div className="flex flex-col gap-2 text-sm">
           <h3 className="text-white font-medium mb-2">Explore</h3>
+          <Link href="/" className="hover:text-[#0BA57F] transition">
+            Home
+          </Link>
           <Link href="/services" className="hover:text-[#0BA57F] transition">
             Services
           </Link>
@@ -56,13 +60,31 @@ const Footer = () => {
           <h3 className="text-white font-medium mb-2">Contact</h3>
           <a href="emailto:hello@venturemond.com" className="hover:text-[#0BA57F] hover:underline transition">📧 hello@venturemond.com</a>
           <a href='https://www.googlemaps.com' className="hover:text-[#0BA57F] hover:underline transition">📍 4th Floor, Bizness Square, Hitec City, Hyderabad – 500084</a>
-          <Link
-            href="https://www.linkedin.com/company/venturemond"
-            target="_blank"
-            className="text-[#0BA57F] hover:underline"
-          >
-            <Linkedin size={24} />
-          </Link>
+          <div className="flex items-center gap-4 mt-2">
+            <Link
+              href="https://www.linkedin.com/company/venturemond"
+              target="_blank"
+              className="text-[#0BA57F] hover:text-[#09c08f] transition"
+            >
+              <Linkedin size={24} />
+            </Link>
+            <Link
+              href="https://wa.me/916302458752"
+              target="_blank"
+              className="text-[#0BA57F] hover:text-[#09c08f] transition"
+            >
+              <WhatsAppIcon sx={{ fontSize: 24 }} />
+            </Link>
+
+
+            {/* Instagram - Disabled */}
+            <div
+              className="text-[#0BA57F] opacity-60 cursor-default relative group"
+            >
+              <Instagram size={24} />
+
+            </div>
+          </div>
         </div>
       </div>
 

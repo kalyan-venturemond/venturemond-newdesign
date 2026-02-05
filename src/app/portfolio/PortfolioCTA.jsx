@@ -24,7 +24,7 @@ const PortfolioCTA = () => {
 
                 <div className="flex flex-col sm:flex-row justify-center gap-5 mt-10">
                     <Link href="/contact" className="btn1">
-                        Book a Discovery Call
+                        Schedule a call
                     </Link>
                     <Link href="/contact" className="btn2">
                         Contact us

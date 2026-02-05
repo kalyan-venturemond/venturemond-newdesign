@@ -37,12 +37,12 @@ const WhyVentureMond = () => {
                     </h2>
 
                     <h3 className="text-xl md:text-2xl font-bold text-white">
-                        Because ideas don’t fail — execution does.
+                        Because ideas don’t fail execution does
                     </h3>
 
                     <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
                         Venturemond exists to close the gap between ideas and real, production-ready systems.
-                        We help founders and teams turn clarity into execution — without fluff, delays, or half-built products.
+                        We help founders and teams turn clarity into execution without fluff, delays, or half-built products.
                     </p>
                 </motion.div>
 

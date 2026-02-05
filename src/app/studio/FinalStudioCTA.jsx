@@ -32,7 +32,7 @@ const FinalStudioCTA = () => {
             href="/contact"
             className="btn1"
           >
-            Book a Discovery Call
+            Schedule a call
           </Link>
           <Link
             href="/contact"

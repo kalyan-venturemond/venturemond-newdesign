@@ -26,7 +26,7 @@ const PortfolioHero = () => {
                     className="heading font-extrabold leading-tight"
                 >
                     Our Work{" "}
-                    <span className="text-[#0BA57F]">Built to Ship</span>
+                    <span className="text-[#0BA57F]">in Production</span>
                 </motion.h1>
 
                 <motion.p

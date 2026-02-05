@@ -4,7 +4,6 @@ import Hero from "./StudioHero"
 import HowStudioWorks from "./HowStudioWorks"
 import WhatWeLookFor from "./WhatWeLookFor"
 import WhatWeBring from "./WhatWeBring"
-import StudioProcess from "./StudioProcess"
 import WhyChoose from "./WhyChoose"
 
 
@@ -13,10 +12,9 @@ const Studio = () => {
     <div>
       <Hero />
       <AboutStudio />
+      <WhatWeBring />
       <HowStudioWorks />
       <WhatWeLookFor />
-      <WhatWeBring />
-      <StudioProcess />
       <WhyChoose />
       <FinalStudioCTA />
     </div>

@@ -9,7 +9,7 @@ const features = [
     {
         icon: <ReceiptLongIcon className="text-[#0BA57F] text-4xl" />,
         title: "Transparent Pricing",
-        desc: "One-time consulting + build fee. No hidden costs, no surprises."
+        desc: "Consulting + build fee. No hidden costs, no surprises."
     },
     {
         icon: <VpnKeyIcon className="text-[#0BA57F] text-4xl" />,

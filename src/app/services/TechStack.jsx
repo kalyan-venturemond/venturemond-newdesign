@@ -15,7 +15,7 @@ import {
 // Tech Stack Data
 const techStack = [
     {
-        category: "AI & Automation",
+        category: "AI Automation",
         description: "Building intelligent agents and autonomous workflows.",
         tools: [
             { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/FF6B6B" },

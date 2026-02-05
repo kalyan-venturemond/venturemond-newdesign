@@ -37,7 +37,7 @@ const TwoWaysWeWork = () => {
                             <CodeIcon className='animate-float drop-shadow-[0_0_6px_#0BA57F66]' /> Services
                         </h3>
                         <p className="para text-gray-300 leading-relaxed mb-6">
-                            One-time consulting + build engagements for AI agents, automation systems,
+                            Consulting + build engagements for AI agents, automation systems,
                             ERPs, CRMs, and custom platforms. You own the code. We deliver the system.
                         </p>
                         <Link

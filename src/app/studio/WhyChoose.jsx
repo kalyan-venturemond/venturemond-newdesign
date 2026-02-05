@@ -39,7 +39,7 @@ const WhyChoose = () => {
   return (
     <section className="bg-[#0B0B0B] text-white py-16 px-6 md:px-16">
       <div className="max-w-6xl mx-auto space-y-12">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,11 +47,11 @@ const WhyChoose = () => {
           className="text-center"
         >
           <h2 className="heading font-bold flex justify-center items-center md:gap-2 gap-1">
-             <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
+            <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
           </h2>
         </motion.div>
 
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
