@@ -101,6 +101,25 @@ const ContactPage = () => {
 
   const formRef = useRef();
 
+  // Currency Detection State
+  const [currency, setCurrency] = useState("USD");
+
+  useEffect(() => {
+    try {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      console.log("Detected Timezone:", timeZone); // For debugging
+      if (
+        timeZone === "Asia/Kolkata" ||
+        timeZone === "Asia/Calcutta" ||
+        timeZone.includes("India")
+      ) {
+        setCurrency("INR");
+      }
+    } catch (e) {
+      console.log("Timezone detection failed", e);
+    }
+  }, []);
+
   // Update service list based on division
   useEffect(() => {
     let services = [];
@@ -297,10 +316,21 @@ const ContactPage = () => {
                     className="w-full bg-[#111111] border border-[#0BA57F]/20 rounded-lg p-3"
                   >
                     <option value="" disabled>Select Budget Range</option>
-                    <option>Under ₹2 Lakhs / $2,500</option>
-                    <option>₹2–5 Lakhs / $2,500–$6,000</option>
-                    <option>₹5–10 Lakhs / $6,000–$12,000</option>
-                    <option>Above ₹10 Lakhs / $12,000+</option>
+                    {currency === "INR" ? (
+                      <>
+                        <option>Under ₹2 Lakhs</option>
+                        <option>₹2–5 Lakhs</option>
+                        <option>₹5–10 Lakhs</option>
+                        <option>Above ₹10 Lakhs</option>
+                      </>
+                    ) : (
+                      <>
+                        <option>Under $2,500</option>
+                        <option>$2,500–$6,000</option>
+                        <option>$6,000–$12,000</option>
+                        <option>$12,000+</option>
+                      </>
+                    )}
                   </select>
                 </div>
 
