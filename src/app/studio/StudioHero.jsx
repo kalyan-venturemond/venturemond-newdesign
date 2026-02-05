@@ -76,7 +76,8 @@ const StudioHero = () => {
         className="flex flex-col sm:flex-row justify-center gap-5 mt-16 z-10"
       >
         <Link
-          href="/contact?model=studio&type=partner"
+          href="https://cal.com/venture-mond-jsjuux/online-discovery-call-30min"
+          target="_blank"
           className="btn1"
         >
           Schedule a call

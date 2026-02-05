@@ -56,7 +56,8 @@ const Navbar = () => {
           </ul>
 
           <Link
-            href="/contact"
+            href="https://cal.com/venture-mond-jsjuux/online-discovery-call-30min"
+            target="_blank"
             className="border border-[#0BA57F] text-[#0BA57F] px-5 py-2 rounded-full hover:bg-[#0BA57F] hover:text-white transition-all text-xs font-bold uppercase tracking-wide"
           >
             Book a Discovery Call
@@ -91,7 +92,8 @@ const Navbar = () => {
               ))}
               <li className="pt-2 border-t border-gray-800 mt-2">
                 <Link
-                  href="/contact"
+                  href="https://cal.com/venture-mond-jsjuux/online-discovery-call-30min"
+                  target="_blank"
                   onClick={() => setMenuOpen(false)}
                   className="block text-center border border-[#0BA57F] text-[#0BA57F] px-4 py-2 rounded-full hover:bg-[#0BA57F] hover:text-white transition-all font-medium"
                 >

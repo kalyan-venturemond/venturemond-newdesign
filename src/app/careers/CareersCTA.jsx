@@ -20,7 +20,7 @@ const CareersCTA = () => {
           Let’s create what’s next — together.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-5 mt-8">
-          <Link href="/contact" className="btn1">
+          <Link href="https://cal.com/venture-mond-jsjuux/online-discovery-call-30min" target="_blank" className="btn1">
             Book a Discovery Call
           </Link>
           <Link href="/contact" className="btn2">

@@ -46,7 +46,8 @@ const ServicesHero = () => {
                     className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
                 >
                     <Link
-                        href="/contact"
+                        href="https://cal.com/venture-mond-jsjuux/online-discovery-call-30min"
+                        target="_blank"
                         className="btn1"
                     >
                         Schedule a call
