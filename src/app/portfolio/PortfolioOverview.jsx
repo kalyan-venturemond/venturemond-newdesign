@@ -6,7 +6,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 const portfolioItems = [
     "Internal tools",
     "AI automation pipelines",
-    "ERP & CRM systems",
+    "ERP and CRM systems",
     "MVPs turned production platforms"
 ];
 
