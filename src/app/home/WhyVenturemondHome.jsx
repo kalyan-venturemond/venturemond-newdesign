@@ -34,7 +34,7 @@ const WhyVenturemondHome = () => {
                     className="text-center"
                 >
                     <h2 className="heading font-bold mb-4">
-                        Why <span className="text-[#0BA57F]">Venturemond</span>
+                        Why <span className="text-[#0BA57F]">Venturemond?</span>
                     </h2>
                     <p className="text-gray-300 para max-w-2xl mx-auto">
                         We don't just talk about execution — we prove it with every system we ship.
@@ -65,7 +65,7 @@ const WhyVenturemondHome = () => {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="text-center text-gray-400 italic para mt-8"
                 >
-                    Real systems. Real outcomes. Real execution
+                    Real systems. Real outcomes. Real execution.
                 </motion.p>
             </div>
         </section>

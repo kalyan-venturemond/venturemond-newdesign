@@ -17,7 +17,7 @@ const PortfolioHero = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="relative z-10 text-center max-w-3xl space-y-6"
+                className="relative z-10 text-center max-w-5xl space-y-6"
             >
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -25,8 +25,8 @@ const PortfolioHero = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="heading font-extrabold leading-tight"
                 >
-                    Our Work{" "}
-                    <span className="text-[#0BA57F]">in Production</span>
+                    From Build to{" "}
+                    <span className="text-[#0BA57F]">Production Deployment</span>
                 </motion.h1>
 
                 <motion.p
@@ -35,7 +35,7 @@ const PortfolioHero = () => {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="text-gray-300 text-sm md:text-lg lg:text-xl leading-relaxed mx-auto"
                 >
-                    Production-grade systems and ventures delivered through Services and Studio.
+                    Production-grade systems and ventures built, deployed, and scaled through our Services and Studio.
                 </motion.p>
 
                 <motion.div

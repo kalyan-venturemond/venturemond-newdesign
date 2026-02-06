@@ -45,7 +45,7 @@ const HowWeWork = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="heading font-bold mb-4">
-                        How We <span className="text-[#0BA57F]">Work</span>
+                        How We <span className="text-[#0BA57F]">Work?</span>
                     </h2>
                     <p className="text-gray-300 para max-w-2xl mx-auto">
                         A structured, transparent process designed for speed and clarity.

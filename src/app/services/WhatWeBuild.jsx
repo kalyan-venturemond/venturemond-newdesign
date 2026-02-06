@@ -20,7 +20,7 @@ const WhatWeBuild = () => {
                     transition={{ duration: 0.8 }}
                     className="heading font-bold leading-snug"
                 >
-                    What We <span className="text-[#0BA57F]">Build</span>
+                    What We <span className="text-[#0BA57F]">Build?</span>
                 </motion.h2>
 
                 <motion.div

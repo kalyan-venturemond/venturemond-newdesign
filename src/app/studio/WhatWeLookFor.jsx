@@ -27,7 +27,7 @@ const WhatWeLookFor = () => {
                     className="text-center mb-20 max-w-3xl mx-auto"
                 >
                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8">
-                        What We <span className="text-[#0BA57F]">Look For</span>
+                        What We <span className="text-[#0BA57F]">Look For?</span>
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-400 leading-relaxed mb-6">
                         We don't invest in just ideas. We invest in founders who have the grit, insight, and ability to execute.

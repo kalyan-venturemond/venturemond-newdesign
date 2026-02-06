@@ -45,7 +45,7 @@ const HowStudioWorks = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="heading font-bold mb-4">
-                        How the Studio <span className="text-[#0BA57F]">Works</span>
+                        How the Studio <span className="text-[#0BA57F]">Works?</span>
                     </h2>
                     <p className="text-gray-300 para max-w-2xl mx-auto">
                         A structured path from idea to partnership built on validation and execution.

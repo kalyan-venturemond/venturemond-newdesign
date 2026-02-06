@@ -19,9 +19,8 @@ const TwoWaysWeWork = () => {
                     <h2 className="heading font-bold mb-6">
                         Two Ways We <span className="text-[#0BA57F]">Work</span>
                     </h2>
-                    <p className="text-gray-300 para leading-relaxed max-w-3xl mx-auto">
-                        Whether you need custom software built or want to co-build a venture,
-                        we have a model that fits.
+                    <p className="text-gray-300 para leading-relaxed max-w-4xl mx-auto">
+                        Whether you need custom software built or want to co-build a venture, we have a model that fits.
                     </p>
                 </motion.div>
 

@@ -36,7 +36,7 @@ const steps = [
   {
     id: 5,
     title: "Improve",
-    desc: "Iterate and optimize based on usage, feedback, and outcomes..",
+    desc: "Iterate and optimize based on usage, feedback, and outcomes.",
     icon: <TrendingUpIcon className="text-[#0BA57F] text-3xl" />
   }
 ];
@@ -54,7 +54,7 @@ const HowWeWork = () => {
           className="text-center space-y-4"
         >
           <h2 className="heading font-bold">
-            How We <span className="text-[#0BA57F]">Operate</span>
+            How We <span className="text-[#0BA57F]">Operate?</span>
           </h2>
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
             One execution model. Applied to both client systems and our own products.

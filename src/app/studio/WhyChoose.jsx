@@ -47,7 +47,7 @@ const WhyChoose = () => {
           className="text-center"
         >
           <h2 className="heading font-bold flex justify-center items-center md:gap-2 gap-1">
-            <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond</span></span>
+            <span>⚡Why Founders Choose <span className="text-[#0BA57F]">Venturemond?</span></span>
           </h2>
         </motion.div>
 

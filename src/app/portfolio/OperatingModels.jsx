@@ -15,9 +15,9 @@ const OperatingModels = () => {
                     className="text-center"
                 >
                     <h2 className="heading font-bold mb-4">
-                        How We <span className="text-[#0BA57F]">Execute</span>
+                        How We <span className="text-[#0BA57F]">Execute?</span>
                     </h2>
-                    <p className="text-gray-300 para max-w-2xl mx-auto">
+                    <p className="text-gray-300 para max-w-4xl mx-auto">
                         Whether you need custom software built or want to co-build a venture, we have a model that fits.
                     </p>
                 </motion.div>
@@ -37,7 +37,7 @@ const OperatingModels = () => {
                             </h3>
                         </div>
                         <p className="para text-gray-300 leading-relaxed">
-                            One-time consulting + build engagements for AI agents, automation systems, ERPs, CRMs, and custom platforms. You own the code. We deliver the system.
+                            Consulting + build engagements for AI agents, Automation systems, ERPs, CRMs, and custom platforms. You own the code. We deliver the system.
                         </p>
                     </motion.div>
 

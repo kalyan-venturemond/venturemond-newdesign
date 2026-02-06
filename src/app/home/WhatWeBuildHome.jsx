@@ -41,7 +41,7 @@ const WhatWeBuildHome = () => {
                     className="text-center mb-24 max-w-4xl mx-auto"
                 >
                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8">
-                        What We <span className="text-[#0BA57F]">Build</span>
+                        What We <span className="text-[#0BA57F]">Build?</span>
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-400 leading-relaxed mb-6">
                         AI-first systems, products, and platforms — built to ship, scale, and last.
