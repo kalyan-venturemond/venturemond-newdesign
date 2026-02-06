@@ -1,105 +1,20 @@
 "use client";
 
 import { ventures } from "@/data/ventures";
-import { articles } from "@/data/articles";
-import { insights, realBuilds } from "@/data/insights";
+import { realBuilds } from "@/data/insights"; // Assuming realBuilds are also portfolio items
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { use } from "react";
 import { motion } from "framer-motion";
 
-export default function Page({ params }) {
+export default function PortfolioItemPage({ params }) {
     const { slug } = use(params);
 
     const venture = ventures.find((v) => v.slug === slug) || realBuilds.find((rb) => rb.slug === slug);
-    // Combine articles and insights for article-style pages
-    const article = articles.find((a) => a.slug === slug) || insights.find((i) => i.slug === slug);
 
-    if (!venture && !article) {
+    if (!venture) {
         notFound();
-    }
-
-    // --- ARTICLE LAYOUT ---
-    if (article) {
-        return (
-            <article className="bg-[#0B0B0B] text-white pt-32 pb-0">
-                <div className="max-w-3xl mx-auto px-6 md:px-12">
-                    {/* Back Link */}
-                    <Link
-                        href="/blogs#articles"
-                        className="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors mb-12 tracking-wide"
-                    >
-                        ← Back to Thoughts
-                    </Link>
-
-                    {/* Article Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="space-y-6 mb-16 border-b border-white/10 pb-12"
-                    >
-                        <div className="flex items-center gap-4 mb-6">
-                            <span className="text-[10px] font-bold tracking-wider text-[#0BA57F] border border-[#0BA57F] px-3 py-1 rounded-full uppercase">
-                                {article.category}
-                            </span>
-                            <div className="flex items-center gap-3 text-xs text-gray-500 font-mono">
-                                <span>🗓 {article.date}</span>
-                                <span>⏱ {article.readTime}</span>
-                            </div>
-                        </div>
-
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-                            {article.title}
-                        </h1>
-                    </motion.div>
-
-                    {/* Article Body */}
-                    <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-8 leading-relaxed">
-                        {article.content.map((block, idx) => {
-                            if (block.type === 'intro') {
-                                return (
-                                    <p key={idx} className="text-xl md:text-2xl text-white font-medium pl-6 border-l-2 border-[#0BA57F] italic">
-                                        {block.text}
-                                    </p>
-                                )
-                            }
-                            return (
-                                <p key={idx}>{block.text}</p>
-                            )
-                        })}
-                    </div>
-
-                </div>
-
-                {/* Footer CTA - Full Width within Container */}
-                <div className="max-w-5xl mx-auto px-6 md:px-12">
-                    <section className="text-center space-y-8 border-t border-white/10 pt-24 mt-24 mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold">
-                            Your story could be <span className="text-[#0BA57F]">next.</span>
-                        </h2>
-                        <p className="text-gray-500 max-w-xl mx-auto">
-                            We build ventures worth sharing — products that inspire, scale, and last. Partner with us to create something that makes it to this page.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                            <Link
-                                href="/contact"
-                                className="bg-[#0BA57F] text-black font-semibold px-6 py-3 rounded-full hover:bg-[#09c08f] transition text-sm"
-                            >
-                                Partner With Venturemond
-                            </Link>
-                            <Link
-                                href="/contact?type=project"
-                                className="border border-[#333] text-white font-semibold px-6 py-3 rounded-full hover:bg-white/5 transition text-sm"
-                            >
-                                Start a Project
-                            </Link>
-                        </div>
-                    </section>
-                </div>
-            </article>
-        )
     }
 
     // --- VENTURE CASE STUDY LAYOUT ---

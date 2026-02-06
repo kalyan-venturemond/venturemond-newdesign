@@ -58,7 +58,7 @@ const Footer = () => {
         {/* Right Section - Contact Info */}
         <div className="flex flex-col gap-2 text-sm">
           <h3 className="text-white font-medium mb-2">Contact</h3>
-          <a href="emailto:hello@venturemond.com" className="hover:text-[#0BA57F] hover:underline transition">📧 hello@venturemond.com</a>
+          <a href="mailto:hello@venturemond.com" className="hover:text-[#0BA57F] hover:underline transition">📧 hello@venturemond.com</a>
           <a href='https://www.googlemaps.com' className="hover:text-[#0BA57F] hover:underline transition">📍 4th Floor, Bizness Square, Hitec City, Hyderabad – 500084</a>
           <div className="flex items-center gap-4 mt-2">
             <Link

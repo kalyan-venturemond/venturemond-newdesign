@@ -88,7 +88,7 @@ const StudioPortfolio = () => {
                             {/* Case Study Link */}
                             <div className="mt-6 pt-4 border-t border-white/10">
                                 <Link
-                                    href={`/blogs/${project.slug}`}
+                                    href={`/portfolio/${project.slug}`}
                                     className="text-[#0BA57F] text-sm font-semibold hover:underline flex items-center gap-1"
                                 >
                                     View Case Study
