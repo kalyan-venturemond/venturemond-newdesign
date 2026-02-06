@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Venturemond",
-  description: "Venturemond SaaS – Modern, scalable, privacy-first software.",
+  description: "Venturemond – Next-Gen Production Engineering Firm & Venture Studio.",
 };
 
 export default function RootLayout({ children }) {
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
               const onLoad = function() {
                 const script = document.createElement("script");
                 script.src = "https://www.chatbase.co/embed.min.js";
-                script.id = "oZNZeuEIo4hju8OflHUeW";  // <-- your real ID
+                script.id = "Bah5xXNrfAV8ZJ7e5p8F6";  // <-- your real ID
                 script.domain = "www.chatbase.co";
                 document.body.appendChild(script);
               };
