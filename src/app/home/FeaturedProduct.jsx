@@ -91,7 +91,7 @@ const FeaturedProduct = () => {
             Join Waitlist
           </Link>
           <Link
-            href="/contact?model=saas&service=workspace"
+            href="/contact?model=services&service=workspace"
             className="btn2"
           >
             Request Access

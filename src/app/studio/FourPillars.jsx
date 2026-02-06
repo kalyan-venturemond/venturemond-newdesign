@@ -23,7 +23,7 @@ const pillars = [
     title: "MVP & Product Development",
     desc: "From concept to code — we build clean, scalable, and high-performance products that move from prototype to production fast.",
     includes: [
-      "Web & SaaS platforms",
+      "Web & Cloud Platforms",
       "Mobile apps (React Native / Flutter)",
       "Product UI/UX design",
       "Full-stack engineering (Next.js, Node.js, Python, Firebase, MongoDB, AWS)",

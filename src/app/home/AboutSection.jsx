@@ -11,7 +11,6 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0BA57F]/10 via-transparent to-transparent -z-10" />
 
       <div className="max-w-6xl mx-auto text-center space-y-12">
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,22 +31,46 @@ const AboutSection = () => {
           </p>
           <br />
           <p className='para mb-2'>
-            <span className="text-[#0BA57F] font-semibold">Studio — </span>
-            Our venture-building arm that helps startups go from idea to product and scale.
+            <span className="text-[#0BA57F] font-semibold">Services — </span>
+            Our production engineering arm building complex software systems, AI pipelines, and custom platforms.
           </p>
           <p className='para'>
-            <span className="text-[#0BA57F] font-semibold">SaaS — </span>
-            Our product division creating intelligent, privacy-first tools for modern teams.
+            <span className="text-[#0BA57F] font-semibold">Studio — </span>
+            Our venture-building arm that co-builds startups from idea to scale.
           </p>
         </motion.div>
 
 
         <div className="grid md:grid-cols-2 gap-10 mt-12">
-          {/* Venturemond Studio */}
+          {/* Venturemond Services */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
+            className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-10 text-left hover:border-[#0BA57F] transition-all duration-300 group"
+          >
+            <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#0BA57F] mb-4">
+              <TipsAndUpdatesIcon className='animate-float drop-shadow-[0_0_6px_#0BA57F66]' /> Venturemond Services
+            </h3>
+            <p className="para text-gray-300 leading-relaxed mb-6">
+              Production engineering for the AI era.
+              We build custom ERPs, CRMs, and intelligent automation systems.
+              We focus on performance, scalability, and execution rigor to deliver
+              software that solves high-value problems.
+            </p>
+            <Link
+              href="/services"
+              className=" px-6 py-3 para border border-[#0BA57F] text-[#0BA57F] font-semibold rounded-full hover:bg-[#0BA57F] hover:text-black transition"
+            >
+              Explore Services
+            </Link>
+          </motion.div>
+
+          {/* Venturemond Studio */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
             className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-10 text-left hover:border-[#0BA57F] transition-all duration-300 "
           >
             <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#0BA57F] mb-4">
@@ -64,30 +87,6 @@ const AboutSection = () => {
               className=" para px-6 py-3 bg-[#0BA57F] text-black font-semibold rounded-full hover:bg-[#09c08f] transition"
             >
               Explore Studio
-            </Link>
-          </motion.div>
-
-          {/* Venturemond SaaS */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-10 text-left hover:border-[#0BA57F] transition-all duration-300 group"
-          >
-            <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#0BA57F] mb-4">
-              <TipsAndUpdatesIcon className='animate-float drop-shadow-[0_0_6px_#0BA57F66]' /> Venturemond SaaS
-            </h3>
-            <p className="para text-gray-300 leading-relaxed mb-6">
-              Building smarter software for modern work.
-              Our SaaS division develops secure, scalable, and design-led software products for
-              today’s teams. We focus on performance, privacy, and automation to make
-              technology invisible and impactful.
-            </p>
-            <Link
-              href="/saas"
-              className=" px-6 py-3 para border border-[#0BA57F] text-[#0BA57F] font-semibold rounded-full hover:bg-[#0BA57F] hover:text-black transition"
-            >
-              Explore SaaS
             </Link>
           </motion.div>
         </div>

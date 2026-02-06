@@ -14,8 +14,8 @@ const sections = [
           two divisions:
         </p>
         <ul className="list-disc ml-6 mt-3 space-y-1 text-gray-300">
+          <li>Venturemond Services — A production engineering division building complex software systems.</li>
           <li>Venturemond Studio — A full-stack venture building and product execution division.</li>
-          <li>Venturemond SaaS — A product division developing intelligent software products, including Venturemond Workspace.</li>
         </ul>
         <p className="mt-3">
           This Privacy Policy explains how we collect, use, store, and protect your information
@@ -164,7 +164,7 @@ const PrivacyPolicy = () => {
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto space-y-16"
       >
-        
+
         <div className="text-center space-y-2">
           <h1 className="heading font-bold">
             Privacy Policy — <span className="text-[#0BA57F]">Venturemond</span>
@@ -172,7 +172,7 @@ const PrivacyPolicy = () => {
           <p className="text-gray-400">Last Updated: November 2025</p>
         </div>
 
-        
+
         <div className="space-y-10">
           {sections.map((section, index) => (
             <motion.div

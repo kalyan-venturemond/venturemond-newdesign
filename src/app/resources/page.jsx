@@ -9,7 +9,7 @@ const ResourcesPage = () => {
         <section
             className="relative flex flex-col items-center justify-center min-h-[90dvh] bg-[#0B0B0B] text-white overflow-hidden px-6 md:px-16 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: "url('/home/bg1.gif')"
+                backgroundImage: "url('/home/bg4.gif')"
             }}
         >
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0B0B0B]/95" />

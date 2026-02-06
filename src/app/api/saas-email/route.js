@@ -3,24 +3,24 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, 
-    port: 465,
-    secure: true,
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
+  host: process.env.SMTP_HOST,
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
 });
 
 export async function POST(request) {
-    const body = await request.json();
-    console.log("Received:", body);
+  const body = await request.json();
+  console.log("Received:", body);
 
-    const userMail = {
-        from: `Venturemond <${process.env.SMTP_USER}>`,
-        to: body.email,
-        subject: "Thanks for Reaching Out to Venturemond",
-         html:`<!DOCTYPE html>
+  const userMail = {
+    from: `Venturemond <${process.env.SMTP_USER}>`,
+    to: body.email,
+    subject: "Thanks for Reaching Out to Venturemond",
+    html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -66,7 +66,7 @@ Someone from our team will get back to you within the next 24 hours.
             <td style="font-size: 16px; line-height: 24px; color:#333; padding-top:10px;">
               <p>Sincerely,<br/>
                 Team Venturemond <br />
-Next-Gen Venture Studio & SaaS Company
+Next-Gen Production Engineering Firm & Venture Studio
 
               </p>
             </td>
@@ -82,13 +82,13 @@ Next-Gen Venture Studio & SaaS Company
 </body>
 </html>
 `
-    };
+  };
 
-    const teamMail = {
-        from: `Venturemond Website <${process.env.SMTP_USER}>`,
-        to: process.env.SMTP_USER,  
-        subject: `New Inquiry from ${body.name}`,
-        text: `
+  const teamMail = {
+    from: `Venturemond Website <${process.env.SMTP_USER}>`,
+    to: process.env.SMTP_USER,
+    subject: `New Inquiry from ${body.name}`,
+    text: `
 A new inquiry was submitted from the website:
 
 Name: ${body.name}
@@ -99,20 +99,20 @@ interest: ${body.interest}
 
 Submitted at: ${new Date().toLocaleString()}
         `,
-    };
+  };
 
-    try {
-        await Promise.all([
-            transporter.sendMail(userMail),
-            transporter.sendMail(teamMail)
-        ]);
+  try {
+    await Promise.all([
+      transporter.sendMail(userMail),
+      transporter.sendMail(teamMail)
+    ]);
 
-        return Response.json({ message: "Emails sent successfully!" });
-    } catch (error) {
-        console.error("MAIL ERROR:", error);
-        return Response.json(
-            { message: "Email failed", error: error.message },
-            { status: 500 }
-        );
-    }
+    return Response.json({ message: "Emails sent successfully!" });
+  } catch (error) {
+    console.error("MAIL ERROR:", error);
+    return Response.json(
+      { message: "Email failed", error: error.message },
+      { status: 500 }
+    );
+  }
 }

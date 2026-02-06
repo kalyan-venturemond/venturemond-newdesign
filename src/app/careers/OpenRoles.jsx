@@ -15,7 +15,7 @@ const roles = [
     icon: <BusinessCenterIcon />,
     title: "Business Development Executive (0–3 years)",
     description:
-      "Identify partnerships, manage client relationships, and contribute to the growth of Venturemond’s SaaS and venture initiatives.",
+      "Identify partnerships, manage client relationships, and contribute to the growth of Venturemond’s services and venture initiatives.",
   },
 ];
 

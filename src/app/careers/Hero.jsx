@@ -16,7 +16,7 @@ const Hero = () => {
           Join the <span className="text-[#0BA57F]">Venturemond</span> Journey
         </h1>
         <p className="text-gray-300 para">
-          We’re building the next generation of ventures and SaaS products — and we’re looking for
+          We’re building the next generation of ventures and intelligent software — and we’re looking for
           passionate innovators, creators, and builders to join us.
         </p>
       </motion.div>
