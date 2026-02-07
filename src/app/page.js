@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Hero from "./home/Hero";
-import TwoWaysWeWork from "./home/TwoWaysWeWork";
+import AboutSection from "./home/AboutSection";
 import WhatWeBuildHome from "./home/WhatWeBuildHome";
 import HowWeWork from "./home/HowWeWork";
 import WhyVenturemondHome from "./home/WhyVenturemondHome";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div >
       <Hero />
-      <TwoWaysWeWork />
+      <AboutSection />
       <WhatWeBuildHome />
       <HowWeWork />
       <TechStackStrip />

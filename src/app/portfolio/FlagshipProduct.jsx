@@ -61,7 +61,7 @@ const FlagshipProduct = () => {
                             </h3>
 
                             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-                                A control-first workspace operating system built on open infrastructure.
+                                A control-first workspace operating system built on modern infrastructure
                                 Bringing files, collaboration, and internal workflows together in a single workspace you fully control.
                             </p>
 

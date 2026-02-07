@@ -36,7 +36,7 @@ const AboutStackly = () => {
                         className="space-y-6"
                     >
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                            Stackly OS is a control-first workspace layer built on open infrastructure, bringing files, collaboration, and internal workflows together under one system teams fully control.
+                            Stackly OS is a A control-first workspace operating system built on infrastructure., bringing files, collaboration, and internal workflows together under one system teams fully control.
                         </p>
 
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed">

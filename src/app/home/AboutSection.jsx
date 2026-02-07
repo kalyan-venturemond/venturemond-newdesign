@@ -1,105 +1,143 @@
 "use client";
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const AboutSection = () => {
+  const capabilities = [
+    {
+      text: "Helps founders and companies gain clarity on what to build",
+      color: "from-[#0BA57F] to-[#08d9a5]"
+    },
+    {
+      text: "Designs the right product strategy and technical infrastructure",
+      color: "from-[#08d9a5] to-[#0BA57F]"
+    },
+    {
+      text: "Builds AI-first, production-grade systems",
+      color: "from-[#0BA57F] to-[#06b88a]"
+    },
+    {
+      text: "Supports go-to-market and scale",
+      color: "from-[#06b88a] to-[#0BA57F]"
+    }
+  ];
+
   return (
-    <section className="relative bg-[#0B0B0B] text-white lg:py-16 md:py-10 py-5 px-6 md:px-16 overflow-hidden">
+    <section className="relative bg-[#0B0B0B] text-white lg:py-24 md:py-20 py-16 px-6 md:px-16 overflow-hidden">
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0BA57F]/10 via-transparent to-transparent -z-10" />
+      {/* Animated Background Orbs */}
+      <div className="absolute top-20 right-10 w-96 h-96 bg-[#0BA57F]/5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#0BA57F]/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <div className="max-w-6xl mx-auto text-center space-y-12">
+      <div className="max-w-7xl mx-auto space-y-16">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-center max-w-4xl mx-auto space-y-6"
         >
-          <h2 className="heading font-bold mb-6">
-            We don’t just build.{" "}
-            <span className="text-[#0BA57F]">We execute</span>
+          <h2 className="heading font-bold">
+            Venturemond architects and engineers{" "}
+            <span className="text-[#0BA57F]">scalable technology ventures</span>
           </h2>
 
-          <p className="text-gray-300 para leading-relaxed max-w-3xl mx-auto mb-4">
-            Venturemond is a full-stack venture company helping founders and organizations
-            turn vision into measurable outcomes.
-          </p>
-
-          <p className="text-gray-400 para max-w-3xl mx-auto">
-            We operate through two core divisions that power our innovation:
-          </p>
-          <br />
-          <p className='para mb-2'>
-            <span className="text-[#0BA57F] font-semibold">Services — </span>
-            Our production engineering arm building complex software systems, AI pipelines, and custom platforms.
-          </p>
-          <p className='para'>
-            <span className="text-[#0BA57F] font-semibold">Studio — </span>
-            Our venture-building arm that co-builds startups from idea to scale.
+          <p className="text-gray-300 para leading-relaxed max-w-3xl mx-auto">
+            We're not just developing software. We're turning ambiguous ideas into structured, scalable ventures — engineering the foundation that serious products are built on.
           </p>
         </motion.div>
 
 
-        <div className="grid md:grid-cols-2 gap-10 mt-12">
-          {/* Venturemond Services */}
+        {/* Creative Staggered Cards Layout */}
+        <div className="relative max-w-5xl mx-auto">
+
+          {/* Section Label */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-10 text-left hover:border-[#0BA57F] transition-all duration-300 group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#0BA57F] mb-4">
-              <TipsAndUpdatesIcon className='animate-float drop-shadow-[0_0_6px_#0BA57F66]' /> Venturemond Services
-            </h3>
-            <p className="para text-gray-300 leading-relaxed mb-6">
-              Production engineering for the AI era.
-              We build custom ERPs, CRMs, and intelligent automation systems.
-              We focus on performance, scalability, and execution rigor to deliver
-              software that solves high-value problems.
-            </p>
-            <Link
-              href="/services"
-              className=" px-6 py-3 para border border-[#0BA57F] text-[#0BA57F] font-semibold rounded-full hover:bg-[#0BA57F] hover:text-black transition"
-            >
-              Explore Services
-            </Link>
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#0BA57F]/10 border border-[#0BA57F]/20 rounded-full">
+              <div className="w-2 h-2 rounded-full bg-[#0BA57F] animate-pulse"></div>
+              <span className="text-sm md:text-base font-semibold text-[#0BA57F] tracking-wide">
+                IN PRACTICAL TERMS
+              </span>
+            </div>
           </motion.div>
 
-          {/* Venturemond Studio */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-10 text-left hover:border-[#0BA57F] transition-all duration-300 "
-          >
-            <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#0BA57F] mb-4">
-              <RocketLaunchIcon className='animate-float drop-shadow-[0_0_6px_#0BA57F66]' /> Venturemond Studio
-            </h3>
-            <p className="para text-gray-300 leading-relaxed mb-6">
-              Building ventures from zero to scale.
-              We partner with founders to research, validate, and build tech products that grow.
-              From idea validation to MVP development and go-to-market execution — Studio
-              delivers end-to-end product execution under one roof.
-            </p>
-            <Link
-              href="/studio"
-              className=" para px-6 py-3 bg-[#0BA57F] text-black font-semibold rounded-full hover:bg-[#09c08f] transition"
-            >
-              Explore Studio
-            </Link>
-          </motion.div>
+          {/* Staggered Capability Cards */}
+          <div className="space-y-4">
+            {capabilities.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.7 }}
+                className={`
+                  group relative
+                  ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}
+                `}
+              >
+                <div className="relative bg-gradient-to-r from-[#111111] to-[#0B0B0B] border border-white/5 hover:border-[#0BA57F]/30 rounded-2xl p-6 md:p-8 transition-all duration-500 overflow-hidden">
+
+                  {/* Gradient Accent Bar */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${item.color} opacity-60 group-hover:opacity-100 group-hover:w-2 transition-all duration-500`}></div>
+
+                  {/* Floating Number */}
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6">
+                    <span className="text-6xl md:text-7xl font-black text-[#0BA57F]/5 group-hover:text-[#0BA57F]/10 transition-colors duration-500">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <p className="text-base md:text-lg text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      {item.text}
+                    </p>
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0BA57F]/0 via-[#0BA57F]/5 to-[#0BA57F]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-gray-400 italic text-lg mt-4 md:mt-6 lg:mt-10 para"
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="text-center space-y-8 pt-12"
         >
-          One mission. Two engines. Infinite possibilities.
-        </motion.p>
+          <div className="inline-block">
+            <p className="text-gray-400 italic text-lg md:text-xl para px-6 py-3 border-t border-b border-[#0BA57F]/20">
+              Venture-grade engineering. Execution-first mindset. Built to scale.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="group px-8 py-4 para bg-[#0BA57F] text-black font-semibold rounded-full hover:bg-[#09c08f] transition-all text-center relative overflow-hidden"
+            >
+              <span className="relative z-10">Start a Conversation</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </Link>
+            <Link
+              href="/portfolio"
+              className="px-8 py-4 para border-2 border-[#0BA57F] text-[#0BA57F] font-semibold rounded-full hover:bg-[#0BA57F] hover:text-black transition-all text-center"
+            >
+              View Portfolio
+            </Link>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

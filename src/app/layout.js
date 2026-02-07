@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Venturemond",
-  description: "Venturemond – Next-Gen Production Engineering Firm & Venture Studio.",
+  description: "Venturemond designs, builds, and scales technology ventures through venture-grade product and AI engineering.",
 };
 
 export default function RootLayout({ children }) {
