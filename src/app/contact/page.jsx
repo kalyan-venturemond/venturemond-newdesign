@@ -204,20 +204,31 @@ const ContactPage = () => {
 
     setError("")
     console.log("Submitted Form Data:", formData);
+
     try {
-      setLoading(true)
-      const response = await fetch("http://localhost:3001/api/send-email", {
+      setLoading(true);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
+      const response = await fetch(`${apiUrl}/api/send-email`, {
         method: "POST",
         headers: {
           "content-type": "application/json"
         },
         body: JSON.stringify(formData)
-      })
-      setLoading(false)
-      setSubmited(false)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmited(false); // Success! Hide form.
+      } else {
+        setError(data.message || "Failed to submit form. Please try again.");
+      }
     } catch (error) {
-      setError("Something went wrong! please try again")
-      console.log("Error in sending email...", error)
+      console.error("Submission error:", error);
+      setError("Something went wrong! Please try again later.");
+    } finally {
+      setLoading(false); // ALWAYS stop loading
     }
   };
 

@@ -112,25 +112,29 @@ Database ID: ${contact._id}
       `
     };
 
-    // Send both emails
-    await Promise.all([
-      transporter.sendMail(userMail),
-      transporter.sendMail(teamMail)
-    ]);
-
-    console.log('✅ Emails sent successfully');
+    // Send both emails (Non-blocking: If email fails, we still return success because data is saved)
+    try {
+      await Promise.all([
+        transporter.sendMail(userMail),
+        transporter.sendMail(teamMail)
+      ]);
+      console.log('✅ Emails sent successfully');
+    } catch (emailError) {
+      console.error('⚠️ Email sending failed (but data saved):', emailError);
+      // We do NOT return error to frontend, because lead is captured.
+    }
 
     res.json({
       success: true,
-      message: 'Email sent successfully and contact saved',
+      message: 'Inquiry received successfully!',
       contactId: contact._id
     });
 
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error('❌ Database Error:', error);
     res.status(500).json({
       success: false,
-      message: 'Failed to send email',
+      message: 'Failed to save contact',
       error: error.message
     });
   }
