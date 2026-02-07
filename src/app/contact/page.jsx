@@ -276,7 +276,7 @@ const ContactPage = () => {
 
               {/* COMPANY */}
               <div>
-                <label className="block mb-2 font-medium">Company / Startup Name</label>
+                <label className="block mb-2 font-medium">Company / Startup Name / Individual</label>
                 <input
                   type="text"
                   name="company"
