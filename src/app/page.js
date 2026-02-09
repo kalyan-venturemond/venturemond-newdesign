@@ -14,7 +14,6 @@ export default function Home() {
     <div >
       <Hero />
       <TwoWaysWeWork />
-      <AboutSection />
       <WhatWeBuildHome />
       <HowWeWork />
       <TechStackStrip />
