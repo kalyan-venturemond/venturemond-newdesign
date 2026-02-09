@@ -46,40 +46,41 @@ router.post('/send-email', async (req, res) => {
 
     // Construct Email Content (HTML)
     // Construct Email Content (HTML) - TEAM NOTIFICATION
+    // Construct Email Content (HTML) - TEAM NOTIFICATION
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #0BA57F; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
+      <div style="font-family: Arial, sans-serif; max-width:600px; margin:0 auto; border:2px solid #0BA57F; border-radius:8px; overflow:hidden; background:#ffffff;">
         
-        <!-- Header -->
-        <div style="background-color: #0B0B0B; padding: 20px; text-align: center;">
+        <!-- Header (Styled Text instead of Image for reliability) -->
+        <div style="background:#0B0B0B; padding:20px; text-align:center;">
           <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
         </div>
 
         <!-- Body -->
-        <div style="padding: 20px; color: #333;">
-          <h2 style="color: #0B0B0B; margin-top: 0; text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">New Inquiry Received</h2>
+        <div style="padding:24px; color:#333;">
+          <h2 style="margin-top:0; color:#0B0B0B; font-size: 20px;">New Website Inquiry</h2>
           
-          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-            <tr><td style="padding: 8px; font-weight: bold; width: 30%;">Name:</td><td style="padding: 8px;">${name}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;"><a href="mailto:${email}" style="color: #0BA57F;">${email}</a></td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Company:</td><td style="padding: 8px;">${company || 'N/A'}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${service || 'N/A'}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Division:</td><td style="padding: 8px;">${division || 'N/A'}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Budget:</td><td style="padding: 8px;">${budget || 'N/A'}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Timeline:</td><td style="padding: 8px;">${timeline || 'N/A'}</td></tr>
+          <table style="width:100%; border-collapse:collapse; margin-top:16px;">
+            <tr><td style="padding:8px; font-weight:bold; width: 30%;">Name</td><td style="padding:8px;">${name}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Email</td><td style="padding:8px;">${email}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Company</td><td style="padding:8px;">${company || '—'}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Service</td><td style="padding:8px;">${service || '—'}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Division</td><td style="padding:8px;">${division || '—'}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Budget</td><td style="padding:8px;">${budget || '—'}</td></tr>
+            <tr><td style="padding:8px; font-weight:bold;">Timeline</td><td style="padding:8px;">${timeline || '—'}</td></tr>
           </table>
 
-          <div style="background-color: #f9f9f9; padding: 15px; margin-top: 20px; border-left: 4px solid #0BA57F;">
-            <p style="margin: 0; font-weight: bold;">Message:</p>
-            <p style="margin: 5px 0 0 0;">${description}</p>
+          <div style="margin-top:20px; padding:15px; background:#f9f9f9; border-left:4px solid #0BA57F;">
+            <strong>Message</strong>
+            <p style="margin-top:8px;">${description}</p>
           </div>
-
+          
           <p><strong>Other Details:</strong> ${otherDescription || 'N/A'}</p>
         </div>
 
         <!-- Footer -->
-        <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #666; border-top: 1px solid #ddd;">
-          <p style="margin: 5px;"><strong>Venturemond Website Inquiry System</strong></p>
-          <p style="margin: 5px;"><a href="https://www.venturemond.com" style="color: #0BA57F; text-decoration: none;">www.venturemond.com</a></p>
+        <div style="background:#f4f4f4; padding:14px; text-align:center; font-size:12px;">
+          <p style="margin:4px;">Venturemond Internal Notification</p>
+          <a href="https://www.venturemond.com" style="color:#0BA57F; text-decoration: none;">www.venturemond.com</a>
         </div>
       </div>
     `;
@@ -103,39 +104,43 @@ router.post('/send-email', async (req, res) => {
         to: email,
         subject: `Thanks for Reaching Out to Venturemond`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #0BA57F; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
+          <div style="font-family: Arial, sans-serif; max-width:600px; margin:0 auto; border:2px solid #0BA57F; border-radius:8px; overflow:hidden; background:#ffffff;">
             
-            <!-- Header -->
-            <div style="background-color: #0B0B0B; padding: 20px; text-align: center;">
+            <!-- Header (Styled Text instead of Image) -->
+            <div style="background:#0B0B0B; padding:20px; text-align:center;">
               <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
             </div>
 
             <!-- Body -->
-            <div style="padding: 30px; text-align: center; color: #333;">
-              <p style="font-size: 18px; margin-bottom: 20px; font-weight: bold;">Hello ${name},</p>
+            <div style="padding:30px; color:#333;">
+              <p style="font-size:18px; font-weight:bold; margin-top: 0;">Hello ${name},</p>
               
-              <p style="font-size: 16px; margin-bottom: 20px; line-height: 1.5;">
-                Thank you for reaching out to us.<br>
-                We have received your message regarding <strong>${service || 'your project'}</strong>.
+              <p style="font-size:15px; line-height:1.6;">
+                Thank you for contacting <strong>Venturemond</strong>.
+                We’ve successfully received your inquiry and our team is currently reviewing your requirements.
               </p>
 
-              <p style="font-size: 16px; margin-bottom: 30px; line-height: 1.5;">
-                Someone from our team will review your requirements and get back to you within the next 24 hours.
+              <p style="font-size:15px; line-height:1.6;">
+                One of our team members will get back to you within <strong>24–48 hours</strong>.
               </p>
               
-              <div style="background-color: #f9f9f9; padding: 15px; margin: 20px 0; display: inline-block; width: 80%; border-radius: 6px;">
-                 <p style="margin: 0; color: #555; font-size: 14px;">If your request is urgent, feel free to give us a call or reply directly to this email.</p>
-              </div>
+              <p style="font-size:15px;">
+                We appreciate your interest and look forward to connecting with you.
+              </p>
             </div>
 
             <!-- Footer -->
-            <div style="background-color: #f4f4f4; padding: 20px; text-align: center; color: #666; border-top: 1px solid #ddd;">
-              <p style="margin: 0 0 10px 0; font-weight: bold; color: #333; font-size: 16px;">Venturemond Team</p>
-              <p style="margin: 5px 0;">
-                <a href="mailto:hello@venturemond.com" style="color: #0BA57F; text-decoration: none; font-weight: bold;">hello@venturemond.com</a>
+            <div style="background:#f4f4f4; padding:20px; text-align:center;">
+              <p style="margin:6px 0; font-weight:bold;">Venturemond Team</p>
+              <p style="margin:6px 0;">
+                <a href="mailto:hello@venturemond.com" style="color:#0BA57F; text-decoration:none;">
+                  hello@venturemond.com
+                </a>
               </p>
-              <p style="margin: 5px 0;">
-                <a href="https://www.venturemond.com" style="color: #0BA57F; text-decoration: none;">www.venturemond.com</a>
+              <p style="margin:6px 0;">
+                <a href="https://www.venturemond.com" style="color:#0BA57F; text-decoration:none;">
+                  www.venturemond.com
+                </a>
               </p>
             </div>
           </div>
