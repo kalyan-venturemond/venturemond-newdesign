@@ -1,127 +1,97 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
-const Contact = require('../models/Contact');
 const router = express.Router();
+const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const Contact = require('../models/Contact');
 
-// Email transporter
+// Initialize Resend if API key is present
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+// Email transporter (Fallback for SMTP)
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
+  host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: Number(process.env.SMTP_PORT) || 587,
-  secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+  secure: process.env.SMTP_SECURE === 'true',
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
 });
 
-// POST /api/send-email
 router.post('/send-email', async (req, res) => {
+  const { name, email, company, description, budget, timeline, division, service, otherDescription } = req.body;
+
   try {
-    const { name, email, company, division, service, budget, timeline, description, otherDescription } = req.body;
-
-    // Validation
-    if (!name || !email) {
-      return res.status(400).json({
-        success: false,
-        message: 'Name and email are required'
-      });
-    }
-
-    // Save to MongoDB
+    // 1. Save to MongoDB
     const contact = new Contact({
       name,
       email,
       company,
-      division,
-      service,
+      description,
       budget,
       timeline,
-      description,
+      division,
+      service,
       otherDescription
     });
+
     await contact.save();
-    console.log('✅ Contact saved to database:', contact._id);
+    console.log(`✅ Contact saved to database: ${contact._id}`);
 
-    // User confirmation email
-    const userMail = {
-      from: `Venturemond <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: 'Thanks for Reaching Out to Venturemond',
-      html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Thank You</title>
-        </head>
-        <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#ffffff;">
-          <table width="100%" cellpadding="0" cellspacing="0" border="0">
-            <tr>
-              <td align="center">
-                <table width="600" cellpadding="0" cellspacing="0" border="0" style="padding: 20px;">
-                  <tr>
-                    <td style="font-size: 16px; line-height: 24px; color:#333;">
-                      <p>Hello ${name},</p>
-                      <p>We hope you're doing well.</p>
-                      <p>Thanks for getting in touch, we've received your message. Someone from our team will get back to you within the next 24 hours</p>
-                      <p>If your request is urgent, feel free to reply directly to this email.</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-size: 16px; line-height: 24px; color:#333; padding-top:10px;">
-                      <p>Sincerely,<br/>
-                        Team Venturemond<br/>
-                        Technology Venture Builder 
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
-        </html>
-      `
-    };
+    // Email Check: Resend vs Nodemailer
+    const teamEmailAddr = process.env.SMTP_USER || 'kalyanguraka7@gmail.com';
 
-    // Team notification email
-    const teamMail = {
-      from: `Venturemond Website <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
-      subject: `New Inquiry from ${name}`,
-      text: `
-A new inquiry was submitted from the website:
+    // Construct Email Content (HTML)
+    const emailHtml = `
+      <h3>New Inquiry from ${name}</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Company:</strong> ${company || 'N/A'}</p>
+      <p><strong>Division:</strong> ${division || 'N/A'}</p>
+      <p><strong>Service:</strong> ${service || 'N/A'}</p>
+      <p><strong>Budget:</strong> ${budget || 'N/A'}</p>
+      <p><strong>Timeline:</strong> ${timeline || 'N/A'}</p>
+      <br/>
+      <p><strong>Message:</strong></p>
+      <p>${description}</p>
+      <br/>
+      <p><strong>Other Details:</strong></p>
+      <p>${otherDescription || 'N/A'}</p>
+      <br/>
+      <p><small>Submitted via Venturemond Website</small></p>
+      <p><small>Note: This email was sent via Resend API (Railway Compatible)</small></p>
+    `;
 
-Name: ${name}
-Email: ${email}
-Company: ${company || 'N/A'}
-Division: ${division || 'N/A'}
-Service: ${service || 'N/A'}
-Budget: ${budget || 'N/A'}
-Timeline: ${timeline || 'N/A'}
+    // SEND EMAILS (Background)
 
-Message:
-${description || 'N/A'}
+    if (resend) {
+      // --- USE RESEND (Reliable for Railway) ---
+      console.log('🚀 Sending via Resend API...');
 
-Other Details:
-${otherDescription || 'N/A'}
+      // Send to Admin/Team
+      resend.emails.send({
+        from: 'Venturemond <onboarding@resend.dev>', // Free tier must use this default sender
+        to: teamEmailAddr, // Must be your verified email on Resend (kalyanguraka7@gmail.com)
+        subject: `New Inquiry from ${name}`,
+        html: emailHtml
+      }).then(data => console.log('✅ Team email sent via Resend:', data))
+        .catch(err => console.error('⚠️ Resend Team email failed:', err));
 
-Submitted at: ${new Date().toLocaleString()}
-Database ID: ${contact._id}
-      `
-    };
+    } else {
+      // --- USE NODEMAILER (Fallback) ---
+      const mailOptions = {
+        from: `"Venturemond Website" <${teamEmailAddr}>`,
+        to: teamEmailAddr,
+        subject: `New Inquiry from ${name}`,
+        html: emailHtml
+      };
 
-    // Send emails in BACKGROUND (Fire and Forget)
-    // We do NOT await this, so the user gets an instant response.
-    Promise.all([
-      transporter.sendMail(userMail),
-      transporter.sendMail(teamMail)
-    ])
-      .then(() => console.log('✅ Emails sent successfully in background'))
-      .catch(err => console.error('⚠️ Background email failed:', err));
+      transporter.sendMail(mailOptions)
+        .then(() => console.log('✅ Team email sent via SMTP'))
+        .catch(err => console.error('⚠️ SMTP failed:', err));
+    }
 
-    // Respond immediately after DB save
+    // Respond immediately
     res.json({
       success: true,
       message: 'Inquiry received successfully!',
