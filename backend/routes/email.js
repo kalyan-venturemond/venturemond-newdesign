@@ -4,6 +4,13 @@ const nodemailer = require('nodemailer');
 const Contact = require('../models/Contact');
 
 // Email transporter (Standard SMTP - fully configurable via ENV)
+console.log("📧 SMTP Config:", {
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  user: process.env.SMTP_USER,
+  secure: process.env.SMTP_SECURE
+});
+
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.zoho.in',
   port: Number(process.env.SMTP_PORT) || 465,
@@ -67,7 +74,34 @@ router.post('/send-email', async (req, res) => {
 
     transporter.sendMail(mailOptions)
       .then(() => console.log('✅ Team email sent via SMTP'))
-      .catch(err => console.error('⚠️ SMTP failed:', err));
+      .catch(err => console.error('⚠️ Team SMTP failed:', err));
+
+    // 2. Send Confirmation Email to User
+    if (email) {
+      const userMailOptions = {
+        from: `"Venturemond Team" <${teamEmailAddr}>`,
+        to: email, // The user's email from form
+        subject: `We received your inquiry - Venturemond`,
+        html: `
+          <h3>Hi ${name},</h3>
+          <p>Thank you for reaching out to Venturemond.</p>
+          <p>We verified your project details and our team will review your inquiry shortly.</p>
+          <p><strong>Your Submission Summary:</strong></p>
+          <ul>
+            <li><strong>Service:</strong> ${service || 'General Inquiry'}</li>
+            <li><strong>Timeline:</strong> ${timeline || 'Not specified'}</li>
+          </ul>
+          <br/>
+          <p>If you have any urgent questions, feel free to reply to this email.</p>
+          <br/>
+          <p>Best regards,<br/>The Venturemond Team</p>
+        `
+      };
+
+      transporter.sendMail(userMailOptions)
+        .then(() => console.log('✅ User confirmation email sent'))
+        .catch(err => console.error('⚠️ User SMTP failed:', err));
+    }
 
     // Respond immediately
     res.json({
