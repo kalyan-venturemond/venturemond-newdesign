@@ -45,23 +45,43 @@ router.post('/send-email', async (req, res) => {
     const teamEmailAddr = process.env.SMTP_USER || 'hello@venturemond.com';
 
     // Construct Email Content (HTML)
+    // Construct Email Content (HTML) - TEAM NOTIFICATION
     const emailHtml = `
-      <h3>New Inquiry from ${name}</h3>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Company:</strong> ${company || 'N/A'}</p>
-      <p><strong>Division:</strong> ${division || 'N/A'}</p>
-      <p><strong>Service:</strong> ${service || 'N/A'}</p>
-      <p><strong>Budget:</strong> ${budget || 'N/A'}</p>
-      <p><strong>Timeline:</strong> ${timeline || 'N/A'}</p>
-      <br/>
-      <p><strong>Message:</strong></p>
-      <p>${description}</p>
-      <br/>
-      <p><strong>Other Details:</strong></p>
-      <p>${otherDescription || 'N/A'}</p>
-      <br/>
-      <p><small>Submitted via Venturemond Website</small></p>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #0BA57F; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
+        
+        <!-- Header -->
+        <div style="background-color: #0B0B0B; padding: 20px; text-align: center;">
+          <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
+        </div>
+
+        <!-- Body -->
+        <div style="padding: 20px; color: #333;">
+          <h2 style="color: #0B0B0B; margin-top: 0; text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">New Inquiry Received</h2>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <tr><td style="padding: 8px; font-weight: bold; width: 30%;">Name:</td><td style="padding: 8px;">${name}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;"><a href="mailto:${email}" style="color: #0BA57F;">${email}</a></td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Company:</td><td style="padding: 8px;">${company || 'N/A'}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Service:</td><td style="padding: 8px;">${service || 'N/A'}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Division:</td><td style="padding: 8px;">${division || 'N/A'}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Budget:</td><td style="padding: 8px;">${budget || 'N/A'}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Timeline:</td><td style="padding: 8px;">${timeline || 'N/A'}</td></tr>
+          </table>
+
+          <div style="background-color: #f9f9f9; padding: 15px; margin-top: 20px; border-left: 4px solid #0BA57F;">
+            <p style="margin: 0; font-weight: bold;">Message:</p>
+            <p style="margin: 5px 0 0 0;">${description}</p>
+          </div>
+
+          <p><strong>Other Details:</strong> ${otherDescription || 'N/A'}</p>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #666; border-top: 1px solid #ddd;">
+          <p style="margin: 5px;"><strong>Venturemond Website Inquiry System</strong></p>
+          <p style="margin: 5px;"><a href="https://www.venturemond.com" style="color: #0BA57F; text-decoration: none;">www.venturemond.com</a></p>
+        </div>
+      </div>
     `;
 
     // SEND EMAIL (Background - Fire and Forget)
@@ -83,13 +103,41 @@ router.post('/send-email', async (req, res) => {
         to: email,
         subject: `Thanks for Reaching Out to Venturemond`,
         html: `
-          <div style="font-family: Arial, sans-serif; text-align: center; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <p style="font-size: 16px; margin-bottom: 20px;">Hello ${name},</p>
-            <p style="font-size: 16px; margin-bottom: 20px;">We hope you're doing well.</p>
-            <p style="font-size: 16px; margin-bottom: 20px;">Thanks for getting in touch, we've received your message. Someone from our team will get back to you within the next 24 hours.</p>
-            <p style="font-size: 16px; margin-bottom: 40px;">If your request is urgent, feel free to reply directly to this email.</p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 2px solid #0BA57F; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
             
-            <p style="font-size: 16px; font-weight: bold;">Sincerely,<br/>Team Venturemond<br/><span style="font-weight: normal; font-size: 14px; color: #666;">Technology Venture Builder</span></p>
+            <!-- Header -->
+            <div style="background-color: #0B0B0B; padding: 20px; text-align: center;">
+              <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
+            </div>
+
+            <!-- Body -->
+            <div style="padding: 30px; text-align: center; color: #333;">
+              <p style="font-size: 18px; margin-bottom: 20px; font-weight: bold;">Hello ${name},</p>
+              
+              <p style="font-size: 16px; margin-bottom: 20px; line-height: 1.5;">
+                Thank you for reaching out to us.<br>
+                We have received your message regarding <strong>${service || 'your project'}</strong>.
+              </p>
+
+              <p style="font-size: 16px; margin-bottom: 30px; line-height: 1.5;">
+                Someone from our team will review your requirements and get back to you within the next 24 hours.
+              </p>
+              
+              <div style="background-color: #f9f9f9; padding: 15px; margin: 20px 0; display: inline-block; width: 80%; border-radius: 6px;">
+                 <p style="margin: 0; color: #555; font-size: 14px;">If your request is urgent, feel free to give us a call or reply directly to this email.</p>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="background-color: #f4f4f4; padding: 20px; text-align: center; color: #666; border-top: 1px solid #ddd;">
+              <p style="margin: 0 0 10px 0; font-weight: bold; color: #333; font-size: 16px;">Venturemond Team</p>
+              <p style="margin: 5px 0;">
+                <a href="mailto:hello@venturemond.com" style="color: #0BA57F; text-decoration: none; font-weight: bold;">hello@venturemond.com</a>
+              </p>
+              <p style="margin: 5px 0;">
+                <a href="https://www.venturemond.com" style="color: #0BA57F; text-decoration: none;">www.venturemond.com</a>
+              </p>
+            </div>
           </div>
         `
       };
