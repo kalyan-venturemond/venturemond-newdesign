@@ -5,6 +5,7 @@ import WhatWeBuildHome from "./home/WhatWeBuildHome";
 import HowWeWork from "./home/HowWeWork";
 import WhyVenturemondHome from "./home/WhyVenturemondHome";
 import WhyChooseVenturemond from "./home/WhyChooseVenturemond";
+import TwoWaysWeWork from "./home/TwoWaysWeWork";
 import FinalCTA from "./home/FinalCTA";
 import TechStackStrip from "./home/TechStackStrip";
 
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div >
       <Hero />
+      <TwoWaysWeWork />
       <AboutSection />
       <WhatWeBuildHome />
       <HowWeWork />
