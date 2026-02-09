@@ -50,9 +50,9 @@ router.post('/send-email', async (req, res) => {
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width:600px; margin:0 auto; border:2px solid #0BA57F; border-radius:8px; overflow:hidden; background:#ffffff;">
         
-        <!-- Header (Styled Text instead of Image for reliability) -->
+        <!-- Header -->
         <div style="background:#0B0B0B; padding:20px; text-align:center;">
-          <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
+          <img src="https://www.venturemond.com/logo1.png" alt="Venturemond" style="max-height:45px; display:block; margin:0 auto;" />
         </div>
 
         <!-- Body -->
@@ -106,9 +106,9 @@ router.post('/send-email', async (req, res) => {
         html: `
           <div style="font-family: Arial, sans-serif; max-width:600px; margin:0 auto; border:2px solid #0BA57F; border-radius:8px; overflow:hidden; background:#ffffff;">
             
-            <!-- Header (Styled Text instead of Image) -->
+            <!-- Header -->
             <div style="background:#0B0B0B; padding:20px; text-align:center;">
-              <h1 style="color: #0BA57F; margin: 0; font-size: 24px; letter-spacing: 1px;">Venturemond</h1>
+              <img src="https://www.venturemond.com/logo1.png" alt="Venturemond" style="max-height:45px; display:block; margin:0 auto;" />
             </div>
 
             <!-- Body -->
@@ -116,12 +116,12 @@ router.post('/send-email', async (req, res) => {
               <p style="font-size:18px; font-weight:bold; margin-top: 0;">Hello ${name},</p>
               
               <p style="font-size:15px; line-height:1.6;">
-                Thank you for contacting <strong>Venturemond</strong>.
-                We’ve successfully received your inquiry and our team is currently reviewing your requirements.
+                Thank you for reaching out to us.<br>
+                We have received your message regarding <strong>${service || 'your project'}</strong>.
               </p>
 
               <p style="font-size:15px; line-height:1.6;">
-                One of our team members will get back to you within <strong>24–48 hours</strong>.
+                Our team is currently reviewing your requirements and will get back to you as soon as possible.
               </p>
               
               <p style="font-size:15px;">
@@ -129,8 +129,8 @@ router.post('/send-email', async (req, res) => {
               </p>
             </div>
 
-            <!-- Footer -->
-            <div style="background:#f4f4f4; padding:20px; text-align:center;">
+            <!-- Footer (Left Aligned) -->
+            <div style="background:#f4f4f4; padding:20px; text-align:left;">
               <p style="margin:6px 0; font-weight:bold;">Venturemond Team</p>
               <p style="margin:6px 0;">
                 <a href="mailto:hello@venturemond.com" style="color:#0BA57F; text-decoration:none;">
