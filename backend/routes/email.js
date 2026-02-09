@@ -66,7 +66,7 @@ router.post('/send-email', async (req, res) => {
 
     // SEND EMAIL (Background - Fire and Forget)
     const mailOptions = {
-      from: `"Venturemond Website" <${teamEmailAddr}>`,
+      from: `"Venturemond" <${teamEmailAddr}>`,
       to: teamEmailAddr, // Send to Admin/Team
       subject: `New Inquiry from ${name}`,
       html: emailHtml
@@ -79,22 +79,16 @@ router.post('/send-email', async (req, res) => {
     // 2. Send Confirmation Email to User
     if (email) {
       const userMailOptions = {
-        from: `"Venturemond Team" <${teamEmailAddr}>`,
-        to: email, // The user's email from form
-        subject: `We received your inquiry - Venturemond`,
+        from: `"Venturemond" <${teamEmailAddr}>`,
+        to: email,
+        subject: `Thanks for Reaching Out to Venturemond`,
         html: `
-          <h3>Hi ${name},</h3>
-          <p>Thank you for reaching out to Venturemond.</p>
-          <p>We verified your project details and our team will review your inquiry shortly.</p>
-          <p><strong>Your Submission Summary:</strong></p>
-          <ul>
-            <li><strong>Service:</strong> ${service || 'General Inquiry'}</li>
-            <li><strong>Timeline:</strong> ${timeline || 'Not specified'}</li>
-          </ul>
+          <p>Hello ${name},</p>
+          <p>We hope you're doing well.</p>
+          <p>Thanks for getting in touch, we've received your message. Someone from our team will get back to you within the next 24 hours.</p>
+          <p>If your request is urgent, feel free to reply directly to this email.</p>
           <br/>
-          <p>If you have any urgent questions, feel free to reply to this email.</p>
-          <br/>
-          <p>Best regards,<br/>The Venturemond Team</p>
+          <p>Sincerely,<br/>Team Venturemond<br/>Technology Venture Builder</p>
         `
       };
 
