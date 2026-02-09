@@ -83,12 +83,14 @@ router.post('/send-email', async (req, res) => {
         to: email,
         subject: `Thanks for Reaching Out to Venturemond`,
         html: `
-          <p>Hello ${name},</p>
-          <p>We hope you're doing well.</p>
-          <p>Thanks for getting in touch, we've received your message. Someone from our team will get back to you within the next 24 hours.</p>
-          <p>If your request is urgent, feel free to reply directly to this email.</p>
-          <br/>
-          <p>Sincerely,<br/>Team Venturemond<br/>Technology Venture Builder</p>
+          <div style="font-family: Arial, sans-serif; text-align: center; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <p style="font-size: 16px; margin-bottom: 20px;">Hello ${name},</p>
+            <p style="font-size: 16px; margin-bottom: 20px;">We hope you're doing well.</p>
+            <p style="font-size: 16px; margin-bottom: 20px;">Thanks for getting in touch, we've received your message. Someone from our team will get back to you within the next 24 hours.</p>
+            <p style="font-size: 16px; margin-bottom: 40px;">If your request is urgent, feel free to reply directly to this email.</p>
+            
+            <p style="font-size: 16px; font-weight: bold;">Sincerely,<br/>Team Venturemond<br/><span style="font-weight: normal; font-size: 14px; color: #666;">Technology Venture Builder</span></p>
+          </div>
         `
       };
 
