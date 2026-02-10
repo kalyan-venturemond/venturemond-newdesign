@@ -208,7 +208,13 @@ const ContactPage = () => {
 
     try {
       setLoading(true);
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
+      // Determine API URL based on environment
+      const isProduction = process.env.NODE_ENV === 'production';
+      const defaultProdUrl = 'https://api.venturemond.com';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || (isProduction ? defaultProdUrl : 'http://localhost:3001');
+
+      console.log("Using API URL:", apiUrl); // Debug log to see which URL is being used
 
       const response = await fetch(`${apiUrl}/api/send-email`, {
         method: "POST",
