@@ -103,18 +103,18 @@ const ContactPage = () => {
   const formRef = useRef();
 
   // Global Currency Support
-  const [geoConfig, setGeoConfig] = useState({ currency: "INR", rate: 84 }); // Default INR
+  const [geoConfig, setGeoConfig] = useState({ currency: "USD", rate: 1 }); // Default USD
 
   useEffect(() => {
     const fetchGeo = async () => {
       try {
-        const res = await fetch("/api/geo");
+        const res = await fetch(`/api/geo?t=${Date.now()}`);
         if (res.ok) {
           const data = await res.json();
           // Use fetched data, fallback to INR default if something is empty
           setGeoConfig({
-            currency: data.currency || "INR",
-            rate: data.rate || 84
+            currency: data.currency || "USD",
+            rate: data.rate || 1
           });
         }
       } catch (e) {
