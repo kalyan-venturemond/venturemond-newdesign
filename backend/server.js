@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       health: '/health',
-      sendEmail: 'POST /api/send-email'
+      sendEmail: 'POST /api/email'
     }
   });
 });
