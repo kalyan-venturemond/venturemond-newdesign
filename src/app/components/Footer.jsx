@@ -23,7 +23,7 @@ const Footer = () => {
           </Link>
           <p className="text-sm text-gray-400">
             Venture Mond is a next-generation services and venture studio company.
-            We design, build & scale production-grade software for clients, while co-building ventures where ideas become products and products become scalable businesses.
+            We design, build & scale production-grade software for clients, while co-building ventures where ideas become products and products become scalable businesses
           </p>
         </div>
 
