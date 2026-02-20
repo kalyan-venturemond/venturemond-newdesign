@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Instagram, Facebook } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Footer = () => {
@@ -56,11 +56,27 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Contact Info */}
-        <div className="flex flex-col gap-2 text-sm">
-          <h3 className="text-white font-medium mb-2">Contact</h3>
-          <a href="mailto:hello@venturemond.com" className="hover:text-[#0BA57F] hover:underline transition">📧 hello@venturemond.com</a>
-          <a href='https://www.googlemaps.com' className="hover:text-[#0BA57F] hover:underline transition">📍 4th Floor, Bizness Square, Hitec City, Hyderabad – 500084</a>
-          <div className="flex items-center gap-4 mt-2">
+        <div className="flex flex-col gap-5 text-[15px]">
+          <h3 className="text-white font-bold text-xl mb-1">Contact</h3>
+
+          <div className="flex flex-col gap-4">
+            <a href="mailto:hello@venturemond.com" className="flex items-center gap-4 text-gray-400 hover:text-white transition group">
+              <Mail className="text-[#0BA57F] shrink-0" size={22} strokeWidth={1.5} />
+              <span className="group-hover:text-[#0BA57F] transition-colors">hello@venturemond.com</span>
+            </a>
+
+            <a href="tel:+916302458752" className="flex items-center gap-4 text-gray-400 hover:text-white transition group">
+              <Phone className="text-[#0BA57F] shrink-0" size={22} strokeWidth={1.5} />
+              <span className="group-hover:text-[#0BA57F] transition-colors">+91 6302458752</span>
+            </a>
+
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 text-gray-400 hover:text-white transition group">
+              <MapPin className="text-[#0BA57F] shrink-0 mt-0.5" size={22} strokeWidth={1.5} />
+              <span className="group-hover:text-[#0BA57F] leading-relaxed transition-colors">4th Floor, Bizness Square, Hitec City,<br />Hyderabad – 500084</span>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-4 mt-4">
             <Link
               href="https://www.linkedin.com/company/venturemond"
               target="_blank"
