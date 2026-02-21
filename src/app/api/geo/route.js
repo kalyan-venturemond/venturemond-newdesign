@@ -51,8 +51,9 @@ export async function GET(request) {
             // BACKUP 1: ipapi.co (if primary failed)
             if (!country) {
                 try {
-                    console.log("Geo Debug - Trying IP Service 2: https://ipapi.co/json/");
-                    const backupRes = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+                    const backupUrl = clientIp ? `https://ipapi.co/${clientIp}/json/` : 'https://ipapi.co/json/';
+                    console.log(`Geo Debug - Trying IP Service 2: ${backupUrl}`);
+                    const backupRes = await fetch(backupUrl, { cache: 'no-store' });
                     if (backupRes.ok) {
                         const backupData = await backupRes.json();
                         if (backupData.country_code) {
@@ -70,9 +71,10 @@ export async function GET(request) {
             // BACKUP 2: ip-api.com (Very reliable, HTTP only)
             if (!country) {
                 try {
-                    console.log("Geo Debug - Trying IP Service 3: http://ip-api.com/json/");
+                    const backup2Url = clientIp ? `http://ip-api.com/json/${clientIp}` : 'http://ip-api.com/json/';
+                    console.log(`Geo Debug - Trying IP Service 3: ${backup2Url}`);
                     // Note: ip-api.com is HTTP only for free tier, but fine for server-side fetch
-                    const backup2Res = await fetch('http://ip-api.com/json/', { cache: 'no-store' });
+                    const backup2Res = await fetch(backup2Url, { cache: 'no-store' });
                     if (backup2Res.ok) {
                         const backup2Data = await backup2Res.json();
                         if (backup2Data.countryCode) { // Note: ip-api uses 'countryCode'

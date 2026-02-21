@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin, Youtube } from "lucide-react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Footer = () => {
@@ -121,6 +121,13 @@ const Footer = () => {
               >
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
+            </div>
+
+            {/* YouTube - Disabled */}
+            <div
+              className="text-[#0BA57F] opacity-60 cursor-default relative group"
+            >
+              <Youtube size={24} />
             </div>
           </div>
         </div>
